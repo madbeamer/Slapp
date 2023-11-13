@@ -20,25 +20,11 @@ footer {
   cursor: pointer;
 }
 
-/*******************************************/
-/* hardcoded for now (will onClick later */
-.footer-button:nth-child(2) {
+.footer-button {
+  color: var(--bright-color);
+}
+
+.selected {
   background-color: var(--bright-color);
-}
-
-.footer-button:nth-child(1) {
-  color: var(--bright-color);
-}
-
-.footer-button:nth-child(2) {
-  color: var(--dark-color);
-}
-
-.footer-button:nth-child(3) {
-  color: var(--bright-color);
-}
-/*******************************************/
-
-.footer-button:hover {
-  background-color: var(--dark-color);
+  color: var(--dark-color) !important;
 }
