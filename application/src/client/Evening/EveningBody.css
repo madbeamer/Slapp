@@ -6,13 +6,14 @@ main {
   /* overflow-y: scroll; */
 }
 .evening-body-container {
-  padding: 20px;
+  padding: var(--space);
 
   > h1 {
     text-align: center;
     font-size: 1em;
     margin: 0;
     padding-bottom: var(--space);
+    padding-top: var(--space);
   }
 
   .card + .card{
@@ -86,6 +87,7 @@ main {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    padding-top: var(--space);
     padding-bottom: var(--space);
   }
   
