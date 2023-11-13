@@ -5,98 +5,101 @@ main {
   /* overflow-y: auto; */
   /* overflow-y: scroll; */
 }
-.body-container {
+.evening-body-container {
   padding: 20px;
-}
 
-h1 {
-  text-align: center;
-  font-size: 1em;
-  margin: 0;
-  padding-bottom: var(--space);
-}
+  > h1 {
+    text-align: center;
+    font-size: 1em;
+    margin: 0;
+    padding-bottom: var(--space);
+  }
+  
+  .button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    max-height: max-content;
+    min-height: 470px;
+    overflow-y: auto;
+  }
+  
+  .habit-button {
+    width: 100%;
+    padding: var(--space);
+    background-color: var(--button-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .habit-button:hover {
+    background-color: var(--selected-color);
+  }
+  
+  .add-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    width: 100%;
+  }
+  
+  .add-button {
+    width: 100%;
+    height: 47px;
+    background-color: var(--dark-color);
+    border-radius: var(--border-radius);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .add-button:hover {
+    background-color: var(--selected-color);
+  }
+  
+  .save-button {
+    padding: var(--space);
+    background-color: var(--dark-color);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .save-button:hover {
+    background-color: var(--selected-color);
+  }
+  
+  .top-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: var(--space);
+  }
+  
+  .mode-button,
+  .submit-button {
+    padding: 12px;
+    background-color: var(--dark-color);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    border-radius: var(--border-radius);
+  }
+  
+  .mode-button:hover,
+  .submit-button:hover {
+    background-color: var(--selected-color);
+  }
+  
 
-.button-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 10px;
-  max-height: 470px;
-  min-height: 470px;
-  overflow-y: auto;
-}
-
-.habit-button {
-  width: 100%;
-  padding: var(--space);
-  background-color: var(--button-color);
-  border-radius: var(--border-radius);
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-}
-
-.habit-button:hover {
-  background-color: var(--selected-color);
-}
-
-.add-button-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 10px;
-  width: 100%;
-}
-
-.add-button {
-  width: 100%;
-  height: 47px;
-  background-color: var(--dark-color);
-  border-radius: var(--border-radius);
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-  padding-top: 10px;
-}
-
-.add-button:hover {
-  background-color: var(--selected-color);
-}
-
-.save-button {
-  padding: var(--space);
-  background-color: var(--dark-color);
-  border-top-right-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-}
-
-.save-button:hover {
-  background-color: var(--selected-color);
-}
-
-.top-buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-bottom: var(--space);
-}
-
-.mode-button,
-.submit-button {
-  padding: 8px 12px;
-  background-color: var(--dark-color);
-  color: var(--text-color);
-  border: none;
-  cursor: pointer;
-  font-size: 1em;
-  border-radius: var(--border-radius);
-}
-
-.mode-button:hover,
-.submit-button:hover {
-  background-color: var(--selected-color);
 }
