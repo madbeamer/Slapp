@@ -75,3 +75,28 @@ h1 {
 .save-button:hover {
   background-color: var(--selected-color);
 }
+
+.top-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: var(--space);
+}
+
+.mode-button,
+.submit-button {
+  padding: 8px 12px;
+  background-color: var(--dark-color);
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: var(--border-radius);
+}
+
+.mode-button:hover,
+.submit-button:hover {
+  background-color: var(--selected-color);
+}

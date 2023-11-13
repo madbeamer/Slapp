@@ -14,43 +14,16 @@ header {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: var(--space);
 }
 
 .left,
 .right {
   margin: 0 10px;
   color: var(--bright-color);
+  cursor: pointer;
 }
 
 .middle {
   text-align: center;
   font-size: 2em;
-}
-
-.bottom {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-top: var(--space);
-  padding-left: var(--space);
-  padding-right: var(--space);
-}
-
-.mode-button,
-.submit-button {
-  padding: 8px 12px;
-  background-color: var(--dark-color);
-  color: var(--text-color);
-  border: none;
-  cursor: pointer;
-  font-size: 1em;
-  border-radius: var(--border-radius);
-}
-
-.mode-button:hover,
-.submit-button:hover {
-  background-color: var(--selected-color);
 }
