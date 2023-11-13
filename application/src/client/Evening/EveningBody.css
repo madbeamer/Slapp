@@ -23,13 +23,8 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
-<<<<<<< HEAD
-    max-height: max-content;
-    min-height: min-content;
-=======
     max-height: 470px;
     min-height: 470px;
->>>>>>> ebd40c6876c4941e8a096b704fbb001aa22aaea7
     overflow-y: auto;
   }
 
