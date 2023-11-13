@@ -3,16 +3,16 @@ import Header from "../Header";
 import MorningInputBody from "./MorningInputBody";
 import Footer from "../Footer";
 
-function Evening() {
+function Morning() {
   return (
     <>
       <Layout>
         <Header />
-        <MorningInputBody/>
+        <MorningInputBody />
         <Footer />
       </Layout>
     </>
   );
 }
 
-export default Evening;
+export default Morning;
