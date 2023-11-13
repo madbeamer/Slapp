@@ -1,8 +1,15 @@
 import "../Body.css";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function EveningInputBody() {
+  const navigate = useNavigate();
+
+  const handleButtonClick = (path: string) => {
+    navigate(path);
+  };
+
   const defaultHabits = [
     "Wake up early",
     "Exercise for at least 30 minutes",
@@ -36,6 +43,16 @@ function EveningInputBody() {
   return (
     <main>
       <div className="body-container">
+        <div className="top-buttons">
+          <button
+            className="mode-button"
+            onClick={() => handleButtonClick("/morning")}
+          >
+            MODE: Night
+          </button>
+          <button className="submit-button">Submit</button>
+        </div>
+
         <h1>Select all that apply:</h1>
         <div className="button-grid">
           {buttonLabels.map((label) => (

@@ -11,8 +11,7 @@ function Header() {
   };
 
   const location = useLocation(); // Get the current location from React Router
-  const shouldRenderBottom =
-    location.pathname === "/evening" || location.pathname === "/morning";
+
   // Function to determine the text based on the route
   const getHeaderText = () => {
     switch (location.pathname) {
@@ -20,6 +19,8 @@ function Header() {
         return "Login";
       case "/evening":
         return "Evening";
+      case "/morning":
+        return "Morning";
       case "/statistics":
         return "Statistics";
       case "/blog":
@@ -45,12 +46,6 @@ function Header() {
             <FaUser size={24} onClick={() => handleButtonClick("/profile")} />
           </div>
         </div>
-        {shouldRenderBottom && (
-          <div className="bottom">
-            <button className="mode-button">MODE: Night</button>
-            <button className="submit-button">Submit</button>
-          </div>
-        )}
       </header>
     </>
   );
