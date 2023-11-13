@@ -27,7 +27,9 @@ function Footer() {
         </button>
         <button
           className={`footer-button ${
-            selectedButton === "/evening" ? "selected" : ""
+            selectedButton === "/evening" || selectedButton === "/morning"
+              ? "selected"
+              : ""
           }`}
           onClick={() => handleButtonClick("/evening")}
         >
