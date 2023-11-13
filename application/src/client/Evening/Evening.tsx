@@ -1,6 +1,6 @@
 import Layout from "../Layout";
 import Header from "../Header";
-import EveningInputBody from "./EveningInputBody";
+import EveningBody from "./EveningBody";
 import Footer from "../Footer";
 
 function Evening() {
@@ -8,7 +8,7 @@ function Evening() {
     <>
       <Layout>
         <Header />
-        <EveningInputBody />
+        <EveningBody />
         <Footer />
       </Layout>
     </>

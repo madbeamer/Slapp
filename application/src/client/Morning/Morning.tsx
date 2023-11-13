@@ -1,6 +1,6 @@
 import Layout from "../Layout";
 import Header from "../Header";
-import MorningInputBody from "./MorningInputBody";
+import MorningBody from "./MorningBody";
 import Footer from "../Footer";
 
 function Morning() {
@@ -8,7 +8,7 @@ function Morning() {
     <>
       <Layout>
         <Header />
-        <MorningInputBody />
+        <MorningBody />
         <Footer />
       </Layout>
     </>
