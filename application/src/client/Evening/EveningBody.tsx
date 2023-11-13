@@ -1,4 +1,4 @@
-import "../Evening/EveningBody.css";
+import "./EveningBody.css";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -42,7 +42,7 @@ function EveningBody() {
 
   return (
     <main>
-      <div className="body-container">
+      <div className="evening-body-container">
         <div className="top-buttons">
           <button
             className="mode-button"
