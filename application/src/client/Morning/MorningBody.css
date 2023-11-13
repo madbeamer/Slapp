@@ -6,7 +6,7 @@ main {
 	/* overflow-y: scroll; */
 }
 .morning-body-container {
-	padding: 20px;
+	padding: var(--space);
 	
 	> h1{
 		text-align: center;
