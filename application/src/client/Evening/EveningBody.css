@@ -14,13 +14,17 @@ main {
     margin: 0;
     padding-bottom: var(--space);
   }
+
+  .card + .card{
+    border-top: 1px solid var(--border-color);
+  }
   
   .button-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
     max-height: max-content;
-    min-height: 470px;
+    min-height: min-content;
     overflow-y: auto;
   }
   
