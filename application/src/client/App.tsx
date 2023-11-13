@@ -4,6 +4,7 @@ import Login from "./Login/Login.tsx";
 import Statistics from "./Statistics/Statistics.tsx";
 import Evening from "./Evening/Evening.tsx";
 import Blog from "./Blog/Blog.tsx";
+import Profile from "./Profile/Profile.tsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/statistics" element={<Statistics />} />
         <Route path="/evening" element={<Evening />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </>
   );

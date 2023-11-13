@@ -1,8 +1,15 @@
 import "./Header.css";
 import { FaMoon, FaUser } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+
+  const handleButtonClick = (path: string) => {
+    navigate(path);
+  };
+
   const location = useLocation(); // Get the current location from React Router
   const shouldRenderBottom =
     location.pathname === "/evening" || location.pathname === "/morning";
@@ -17,6 +24,8 @@ function Header() {
         return "Statistics";
       case "/blog":
         return "Blog";
+      case "/profile":
+        return "Profile";
       default:
         return "Default";
     }
@@ -33,7 +42,7 @@ function Header() {
             <span>{getHeaderText()}</span>
           </div>
           <div className="right">
-            <FaUser size={24} />
+            <FaUser size={24} onClick={() => handleButtonClick("/profile")} />
           </div>
         </div>
         {shouldRenderBottom && (
