@@ -8,36 +8,6 @@ main {
 .morning-body-container {
 	padding: var(--space);
 	
-	> h1{
-		text-align: center;
-		font-size: 1em;
-		margin: 0;
-		padding-bottom: var(--space);
-	}
-	
-	.button-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-		gap: 10px;
-		max-height: 470px;
-		min-height: 470px;
-		overflow-y: auto;
-	}
-	
-	.save-button {
-		padding: var(--space);
-		background-color: var(--dark-color);
-		border-top-right-radius: var(--border-radius);
-		border-bottom-right-radius: var(--border-radius);
-		color: #ffffff;
-		border: none;
-		cursor: pointer;
-	}
-	
-	.save-button:hover {
-		background-color: var(--selected-color);
-	}
-	
 	.top-buttons {
 		display: flex;
 		flex-direction: row;
