@@ -1,5 +1,4 @@
 import "./ProfileBody.css";
-import profileImage from "./profile_image.png";
 import {
   FaUser,
   FaLock,
@@ -14,10 +13,14 @@ function ProfileBody() {
   return (
     <main>
       <div className="profile-image-container">
-        <img className="profile-image" src={profileImage} alt="Profile Image" />
+        <img
+          className="profile-image"
+          src={"/profile-image.png"}
+          alt="Profile Image"
+        />
       </div>
-      <caption className="profile-name">~ meoowuffi</caption>
-      <caption className="profile-email">meow@slep.moo</caption>
+      <div className="profile-name">~ meoowuffi</div>
+      <div className="profile-email">meow@slep.moo</div>
 
       <div className="profile-button-container">
         <div className="profile-button">
@@ -61,7 +64,7 @@ function ProfileBody() {
         </div>
         <div className="spacer tall-spacer">
           Account
-          <caption>Security notifications, change email</caption>
+          <div>Security notifications, change email</div>
         </div>
       </div>
 
@@ -71,7 +74,7 @@ function ProfileBody() {
         </div>
         <div className="spacer tall-spacer">
           Notifications
-          <caption>Input prompts, alarm</caption>
+          <div>Input prompts, alarm</div>
         </div>
       </div>
     </main>
