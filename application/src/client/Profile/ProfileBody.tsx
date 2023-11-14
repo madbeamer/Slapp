@@ -11,7 +11,7 @@ import {
 
 function ProfileBody() {
   return (
-    <main>
+    <main className="profile-body-container">
       <div className="profile-image-container">
         <img
           className="profile-image"

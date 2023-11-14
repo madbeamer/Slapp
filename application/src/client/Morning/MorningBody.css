@@ -1,9 +1,7 @@
-main {
+.morning-body-container {
   display: flex;
   flex-direction: column;
   flex: 1;
-}
-.morning-body-container {
   padding: var(--space);
 
   .button-grid {

@@ -9,32 +9,30 @@ function MorningInputBody() {
   };
 
   return (
-    <main>
-      <div className="morning-body-container">
-        <article className="top-buttons">
-          <button
-            className="mode-button"
-            onClick={() => handleModeClick("/evening")}
-          >
-            MODE: Day
-          </button>
-          <button className="submit-button">Submit</button>
-        </article>
-        <article className="cardList">
-          <CardWithSlider
-            inputTitle="How was your sleep?"
-            sliderList={["dead", "bad", "meh", "ok", "nice"]}
-          />
-          <CardWithSlider
-            inputTitle="How often are your wakeups?"
-            sliderList={["0", "1", "2", "3", ">3"]}
-          />
-          <CardWithSlider
-            inputTitle="How often did you go to the bathroom?"
-            sliderList={["0h", "1h", "2h", ">3h", "didn't"]}
-          />
-        </article>
-      </div>
+    <main className="morning-body-container">
+      <article className="top-buttons">
+        <button
+          className="mode-button"
+          onClick={() => handleModeClick("/evening")}
+        >
+          MODE: Day
+        </button>
+        <button className="submit-button">Submit</button>
+      </article>
+      <article className="cardList">
+        <CardWithSlider
+          inputTitle="How was your sleep?"
+          sliderList={["dead", "bad", "meh", "ok", "nice"]}
+        />
+        <CardWithSlider
+          inputTitle="How often are your wakeups?"
+          sliderList={["0", "1", "2", "3", ">3"]}
+        />
+        <CardWithSlider
+          inputTitle="How often did you go to the bathroom?"
+          sliderList={["0h", "1h", "2h", ">3h", "didn't"]}
+        />
+      </article>
     </main>
   );
 
