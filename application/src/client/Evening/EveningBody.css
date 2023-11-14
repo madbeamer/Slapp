@@ -5,13 +5,18 @@ main {
 }
 
 .evening-body-container {
-  padding: 20px;
+  padding: var(--space);
 
   > h1 {
     text-align: center;
     font-size: 1em;
     margin: 0;
     padding-bottom: var(--space);
+    padding-top: var(--space);
+  }
+
+  .card + .card {
+    border-top: 1px solid var(--border-color);
   }
 
   .button-grid {
@@ -79,8 +84,9 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
+    padding-top: var(--space);
     padding-bottom: var(--space);
   }
 

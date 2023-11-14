@@ -54,7 +54,7 @@ function EveningBody() {
         </div>
 
         <h1>Select all that apply:</h1>
-        <div className="button-grid">
+        <div className="button-grid card">
           {buttonLabels.map((label) => (
             <button key={label} className="habit-button">
               {label}
