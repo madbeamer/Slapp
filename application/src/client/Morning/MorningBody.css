@@ -1,14 +1,12 @@
 main {
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	/* overflow-y: auto; */
-	/* overflow-y: scroll; */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .morning-body-container {
-	padding: var(--space);
+  padding: var(--space);
 
-	.button-grid {
+  .button-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
@@ -17,7 +15,7 @@ main {
     overflow-y: auto;
   }
 
-	.habit-button {
+  .habit-button {
     width: 100%;
     padding: var(--space);
     background-color: var(--button-color);
@@ -28,82 +26,74 @@ main {
     cursor: pointer;
   }
 
-  .habit-button:hover {
-    background-color: var(--selected-color);
+  .habit-button .clicked {
+    background-color: var(--bright-color);
   }
 
-	.cardList{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: var(--space);
+  .cardList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space);
 
-		.card + .card{
-			border-top: 1px solid var(--border-color);
-		}
+    .card + .card {
+      border-top: 1px solid var(--border-color);
+    }
 
-		.card{
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			padding-top: var(--space);
-			> label{
-				font-size: 1.1rem;
-			}
+    .card {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: var(--space);
+      > label {
+        font-size: 1.1rem;
+      }
 
-			/* here begins the styling for the slider. */
-			>input[type="range"] {
-				-webkit-appearance: none;
-				background: linear-gradient(90deg, #795000 0%, #FFC046 100%);
-				border-radius: 9px;
-				height: 1rem;
-				appearance: none;
-				cursor: pointer;
-				width: 80%;
-			}
-			>input[type="range"]::-webkit-slider-thumb{
-				-webkit-appearance: none;
-				background: white;
-				height: 1rem;
-				width: 1rem;
-				border-radius: 50%;
-			}
-			/* begin of text under slider */
-			.sliderList{
-				width: 85%;
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-			}
-		}
-	}
-	
-	.top-buttons {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
-		padding-bottom: var(--space);
-	}
-		
-	.mode-button,
-	.submit-button {
-	  padding: 12px;
-	  background-color: var(--dark-color);
-	  color: var(--text-color);
-	  border: none;
-	  cursor: pointer;
-	  font-size: 1.25rem;
-	  border-radius: var(--border-radius);
-	}
-	
-	.mode-button:hover,
-	.submit-button:hover {
-		background-color: var(--selected-color);
-	}
+      /* here begins the styling for the slider. */
+      > input[type="range"] {
+        -webkit-appearance: none;
+        background: linear-gradient(90deg, #795000 0%, #ffc046 100%);
+        border-radius: 9px;
+        height: 1rem;
+        appearance: none;
+        cursor: pointer;
+        width: 80%;
+      }
+      > input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        background: white;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+      }
+      /* begin of text under slider */
+      .sliderList {
+        width: 85%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .top-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-bottom: var(--space);
+  }
+
+  .mode-button,
+  .submit-button {
+    padding: 12px;
+    background-color: var(--bright-color);
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    border-radius: var(--border-radius);
+  }
 }
-
-
-  
