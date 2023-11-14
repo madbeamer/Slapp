@@ -33,27 +33,25 @@ const articles = [
 
 function BlogBody() {
   return (
-    <main>
-      <div className="blog-container">
-        {articles.map((article, index) => (
-          <div className="article-card" key={index}>
-            <img
-              className="article-image"
-              src={article.image}
-              alt={article.title}
-            />
-            <h2>{article.title}</h2>
-            <a
-              href={article.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="article-link"
-            >
-              <p>{article.content}</p>
-            </a>
-          </div>
-        ))}
-      </div>
+    <main className="blog-container">
+      {articles.map((article, index) => (
+        <div className="article-card" key={index}>
+          <img
+            className="article-image"
+            src={article.image}
+            alt={article.title}
+          />
+          <h2>{article.title}</h2>
+          <a
+            href={article.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="article-link"
+          >
+            <p>{article.content}</p>
+          </a>
+        </div>
+      ))}
     </main>
   );
 }
