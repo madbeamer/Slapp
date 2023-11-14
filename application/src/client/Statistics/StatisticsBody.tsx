@@ -1,6 +1,6 @@
 function StatisticsBody() {
   return (
-    <main>
+    <main className="statistics-body-container">
       <h1>This is the statistics page</h1>
     </main>
   );
