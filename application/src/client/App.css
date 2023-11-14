@@ -22,4 +22,5 @@ body {
   min-height: 100vh;
   background-color: var(--background-color);
   color: var(--text-color);
+  justify-content: space-between;
 }
