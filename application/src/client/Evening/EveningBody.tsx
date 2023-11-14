@@ -41,45 +41,43 @@ function EveningBody() {
   };
 
   return (
-    <main>
-      <div className="evening-body-container">
-        <div className="top-buttons">
-          <button
-            className="mode-button"
-            onClick={() => handleButtonClick("/morning")}
-          >
-            MODE: Night
-          </button>
-          <button className="submit-button">Submit</button>
-        </div>
-
-        <h1>Select all that apply:</h1>
-        <div className="button-grid card">
-          {buttonLabels.map((label) => (
-            <button key={label} className="habit-button">
-              {label}
-            </button>
-          ))}
-        </div>
-        {isAddingButton ? (
-          <div className="add-button-container">
-            <input
-              type="text"
-              placeholder="Enter new habit"
-              value={newButtonLabel}
-              onChange={(e) => setNewButtonLabel(e.target.value)}
-              style={{ width: "100%", height: "40px" }}
-            />
-            <button className="save-button" onClick={saveNewButton}>
-              Save
-            </button>
-          </div>
-        ) : (
-          <button className="add-button" onClick={addNewButton}>
-            <FaPlus size={24} />
-          </button>
-        )}
+    <main className="evening-body-container">
+      <div className="top-buttons">
+        <button
+          className="mode-button"
+          onClick={() => handleButtonClick("/morning")}
+        >
+          MODE: Night
+        </button>
+        <button className="submit-button">Submit</button>
       </div>
+
+      <h1>Select all that apply:</h1>
+      <div className="button-grid card">
+        {buttonLabels.map((label) => (
+          <button key={label} className="habit-button">
+            {label}
+          </button>
+        ))}
+      </div>
+      {isAddingButton ? (
+        <div className="add-button-container">
+          <input
+            type="text"
+            placeholder="Enter new habit"
+            value={newButtonLabel}
+            onChange={(e) => setNewButtonLabel(e.target.value)}
+            style={{ width: "100%", height: "40px" }}
+          />
+          <button className="save-button" onClick={saveNewButton}>
+            Save
+          </button>
+        </div>
+      ) : (
+        <button className="add-button" onClick={addNewButton}>
+          <FaPlus size={24} />
+        </button>
+      )}
     </main>
   );
 }
