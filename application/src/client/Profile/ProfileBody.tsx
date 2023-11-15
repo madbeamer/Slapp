@@ -1,4 +1,5 @@
 import "./ProfileBody.css";
+import React from "react";
 import {
   FaUser,
   FaLock,
@@ -7,7 +8,65 @@ import {
   FaLink,
   FaKey,
   FaBell,
+  FaPalette,
+  FaGlobe,
 } from "react-icons/fa";
+
+interface ProfileButtonProps {
+  icon: any;
+  text: string;
+  iconClassName?: string;
+}
+
+function ProfileButton({
+  icon,
+  text,
+  iconClassName = "icon",
+}: ProfileButtonProps) {
+  return (
+    <>
+      <div className="profile-button">
+        <div>{React.cloneElement(icon, { className: iconClassName })}</div>
+        <div>{text}</div>
+      </div>
+    </>
+  );
+}
+
+interface ProfileLineContainerProps {
+  icon: any;
+  text: string;
+  iconClassName?: string;
+  smallText?: string;
+}
+
+function ProfileLineContainer({
+  icon,
+  text,
+  iconClassName = "line-icon",
+  smallText,
+}: ProfileLineContainerProps) {
+  return smallText ? (
+    <>
+      <div className="profile-line-container">
+        <div>
+          <div>{React.cloneElement(icon, { className: iconClassName })}</div>
+        </div>
+        <div className="spacer tall">
+          {text}
+          <div>{smallText}</div>
+        </div>
+      </div>
+    </>
+  ) : (
+    <>
+      <div className="profile-line-container">
+        <div>{React.cloneElement(icon, { className: iconClassName })}</div>
+        <div className="spacer">{text}</div>
+      </div>
+    </>
+  );
+}
 
 function ProfileBody() {
   return (
@@ -23,60 +82,39 @@ function ProfileBody() {
       <div className="profile-email">meow@slep.moo</div>
 
       <div className="profile-button-container">
-        <div className="profile-button">
-          <div>
-            <FaUser className="icon" />
-          </div>
-          <div>Profile</div>
-        </div>
-        <div className="profile-button">
-          <div>
-            <FaLock className="icon" />
-          </div>
-          <div>Privacy</div>
-        </div>
-        <div className="profile-button">
-          <div>
-            <FaUserFriends className="icon" />
-          </div>
-          <div>Contacts</div>
-        </div>
+        <ProfileButton icon={<FaUser />} text="Profile" />
+        <ProfileButton icon={<FaLock />} text="Privacy" />
+        <ProfileButton icon={<FaUserFriends />} text="Contacts" />
       </div>
 
-      <div className="profile-line-container">
-        <div>
-          <FaStar className="line-icon" />
-        </div>
-        <div className="spacer">Starred Blog pages</div>
-      </div>
-      <div className="profile-line-container">
-        <div>
-          <FaLink className="line-icon" />
-        </div>
-        <div className="spacer">Linked devices</div>
-      </div>
+      <ProfileLineContainer icon={<FaStar />} text="Starred Blog pages" />
+      <ProfileLineContainer icon={<FaLink />} text="Linked devices" />
 
       <div className="divider-line"></div>
 
-      <div className="profile-line-container">
-        <div>
-          <FaKey className="line-icon" />
-        </div>
-        <div className="spacer tall-spacer">
-          Account
-          <div>Security notifications, change email</div>
-        </div>
-      </div>
+      <ProfileLineContainer
+        icon={<FaKey />}
+        text="Account"
+        smallText="Security notifications, change email"
+      />
 
-      <div className="profile-line-container">
-        <div>
-          <FaBell className="line-icon" />
-        </div>
-        <div className="spacer tall-spacer">
-          Notifications
-          <div>Input prompts, alarm</div>
-        </div>
-      </div>
+      <ProfileLineContainer
+        icon={<FaPalette />}
+        text="Appearance"
+        smallText="Theme, input style"
+      />
+
+      <ProfileLineContainer
+        icon={<FaBell />}
+        text="Notifications"
+        smallText="Input prompts, alarm"
+      />
+
+      <ProfileLineContainer
+        icon={<FaGlobe />}
+        text="Language"
+        smallText="English"
+      />
     </main>
   );
 }
