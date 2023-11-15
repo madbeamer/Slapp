@@ -4,26 +4,27 @@ header {
   align-items: center;
   justify-content: space-between;
   border-bottom: 0.1px solid var(--border-color);
-  padding: var(--space);
+  padding: 40px 10px 12.5px 10px;
   flex-wrap: wrap;
-}
+  height: 37px;
 
-.top {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
+  & .top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 
-.left,
-.right {
-  margin: 0 10px;
-  color: var(--bright-color);
-  cursor: pointer;
-}
+  & .left,
+  .right {
+    margin: 0 10px;
+    color: var(--bright-color);
+    cursor: pointer;
+  }
 
-.middle {
-  text-align: center;
-  font-size: 2em;
+  & .middle {
+    text-align: center;
+    font-size: 2em;
+  }
 }
