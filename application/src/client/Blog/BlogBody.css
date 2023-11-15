@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  max-height: calc(100vh - 140px);
+  max-height: calc(100vh - 142px);
   overflow-y: auto;
 
   .article-card {
