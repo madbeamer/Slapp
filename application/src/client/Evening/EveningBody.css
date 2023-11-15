@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: var(--space);
+  padding: 0 var(--space);
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
 
   > h1 {
     text-align: center;
@@ -20,8 +22,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
-    max-height: 450px;
-    min-height: 450px;
+    /* max-height: 450px;
+    min-height: 450px; */
     overflow-y: auto;
   }
 
@@ -44,7 +46,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
     width: 100%;
   }
 
@@ -56,13 +57,14 @@
     color: #ffffff;
     border: none;
     cursor: pointer;
-    margin-top: 10px;
+    margin: 10px 0;
   }
 
   .add-button:hover {
     background-color: var(--selected-color);
   }
 
+  /* I noticed that "save-button" isn't used yet, so here's a comment. */
   .save-button {
     padding: var(--space);
     background-color: var(--dark-color);
