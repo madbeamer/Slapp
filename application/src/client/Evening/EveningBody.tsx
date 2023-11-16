@@ -40,6 +40,14 @@ function EveningBody() {
     }
   };
 
+  function handleHabitClick(e: React.MouseEvent) {
+    if (!(e.target instanceof HTMLElement)) return;
+
+    if (e.target.classList.contains("clicked"))
+      e.target.classList.remove("clicked");
+    else e.target.classList.add("clicked");
+  }
+
   return (
     <main className="evening-body-container">
       <div className="top-buttons">
