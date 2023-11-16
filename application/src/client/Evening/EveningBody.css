@@ -27,6 +27,7 @@
 
   .habit-button.selected {
     background-color: var(--selected-color);
+    color: white !important;
   }
 
   .habit-button {
@@ -40,9 +41,9 @@
     cursor: pointer;
   }
 
-  .habit-button:hover {
+  /* .habit-button:hover {
     background-color: var(--selected-color);
-  }
+  } */
 
   .add-button-container {
     display: flex;
@@ -65,6 +66,7 @@
 
   .add-button:hover {
     background-color: var(--selected-color);
+    color: black;
   }
 
   .save-button {
