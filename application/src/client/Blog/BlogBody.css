@@ -8,10 +8,15 @@
   .article-card {
     width: 300px;
     margin: 20px;
+    margin-top: 0px;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    &:first-child {
+      margin-top: 20px;
+    }
   }
 
   .article-image {
