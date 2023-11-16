@@ -25,6 +25,10 @@
     overflow-y: auto;
   }
 
+  .habit-button.selected {
+    background-color: var(--selected-color);
+  }
+
   .habit-button {
     width: 100%;
     padding: var(--space);
