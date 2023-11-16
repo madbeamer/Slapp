@@ -40,6 +40,14 @@ function EveningBody() {
     }
   };
 
+  function handleHabitClick(e: React.MouseEvent) {
+    if (!(e.target instanceof HTMLElement)) return;
+
+    if (e.target.classList.contains("selected"))
+      e.target.classList.remove("selected");
+    else e.target.classList.add("selected");
+  }
+
   return (
     <main className="evening-body-container">
       <div className="top-buttons">
@@ -55,7 +63,11 @@ function EveningBody() {
       <h1>Select all that apply:</h1>
       <div className="button-grid card">
         {buttonLabels.map((label) => (
-          <button key={label} className="habit-button">
+          <button
+            key={label}
+            className="habit-button"
+            onClick={handleHabitClick}
+          >
             {label}
           </button>
         ))}
