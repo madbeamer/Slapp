@@ -15,7 +15,7 @@ function Header() {
   // Function to determine the text based on the route
   const getHeaderText = () => {
     switch (location.pathname) {
-      case "/":
+      case "/login":
         return "Login";
       case "/evening":
         return "Evening";
@@ -27,6 +27,8 @@ function Header() {
         return "Blog";
       case "/profile":
         return "Profile";
+      case "/sleep":
+        return "Sleep now";
       default:
         return "Default";
     }
@@ -37,7 +39,7 @@ function Header() {
       <header>
         <div className="top">
           <div className="left">
-            <FaMoon size={24} />
+            <FaMoon size={24} onClick={() => handleButtonClick("/sleep")} />
           </div>
           <div className="middle">
             <span>{getHeaderText()}</span>
