@@ -1,3 +1,5 @@
+import "./StatisticsBody.css";
+
 function StatisticsBody() {
   return (
     <main className="statistics-body-container">

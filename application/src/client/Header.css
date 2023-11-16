@@ -3,7 +3,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 0.1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 40px 10px 12.5px 10px;
   flex-wrap: wrap;
   height: 37px;

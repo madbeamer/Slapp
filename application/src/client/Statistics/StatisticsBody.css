@@ -1,5 +1,7 @@
 .statistics-body-container {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  max-height: calc(100vh - 142px);
   overflow-y: auto;
 }

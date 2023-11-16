@@ -2,17 +2,17 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  max-height: calc(100vh - 145px);
+  max-height: calc(100vh - 142px);
   overflow-y: auto;
 
-  & .profile-image {
+  .profile-image {
     width: 50%;
     height: 50%;
     border-radius: 50%;
     background-color: #222222;
   }
 
-  & .profile-image-container {
+  .profile-image-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,26 +20,26 @@
     /* overflow: hidden; */
   }
 
-  & .profile-name {
+  .profile-name {
     display: flex;
     justify-content: center;
     font-style: italic;
     color: var(--secondary-text-color);
   }
 
-  & .profile-email {
+  .profile-email {
     display: flex;
     justify-content: center;
     color: var(--secondary-text-color);
   }
 
-  & .profile-button-container {
+  .profile-button-container {
     display: flex;
     justify-content: space-between;
     padding: 3%;
   }
 
-  & .profile-button {
+  .profile-button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,29 +49,29 @@
     padding: 1vh 0 1vh 0;
   }
 
-  & .profile-button:hover {
+  .profile-button:hover {
     background-color: var(--selected-color);
   }
 
-  & .profile-line-container {
+  .profile-line-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: var(--space);
   }
 
-  & .profile-line-container:hover {
+  .profile-line-container:hover {
     background-color: var(--selected-color);
   }
 
-  & .spacer {
+  .spacer {
     flex-grow: 1;
     padding: var(--space);
     &.tall {
       display: flex;
       flex-direction: column;
 
-      & div {
+      > div {
         text-align: left;
         color: var(--secondary-text-color);
         font-size: small;
@@ -79,16 +79,16 @@
     }
   }
 
-  & .button-icon {
+  .button-icon {
     size: 18;
   }
 
-  & .line-icon {
+  .line-icon {
     size: 18;
     padding: var(--space);
   }
 
-  & .divider-line {
+  .divider-line {
     width: 100%;
     border-bottom: 1px solid var(--button-color);
   }
