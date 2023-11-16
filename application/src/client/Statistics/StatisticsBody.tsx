@@ -34,8 +34,10 @@ function StatisticsBody() {
     return habits.slice(0, showMore ? undefined : 3).map((habit, index) => (
       <div className="habit-row" key={index}>
         <div className="habit">{habit[0]}</div>
-        {habit[1] && <FaArrowTrendUp size={24} color="green" />}
-        {!habit[1] && <FaArrowTrendDown size={24} color="red" />}
+        {habit[1] && <FaArrowTrendUp size={24} className="trend-up-icon" />}
+        {!habit[1] && (
+          <FaArrowTrendDown size={24} className="trend-down-icon" />
+        )}
       </div>
     ));
   };
