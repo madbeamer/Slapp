@@ -43,9 +43,9 @@
     cursor: pointer;
   }
 
-  /* .habit-button:hover {
+  .habit-button:hover {
     background-color: var(--selected-color);
-  } */
+  }
 
   .add-button-container {
     display: flex;
