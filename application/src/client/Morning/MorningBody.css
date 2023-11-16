@@ -24,7 +24,7 @@
     cursor: pointer;
   }
 
-  .habit-button .clicked {
+  .habit-button .selected {
     background-color: var(--bright-color);
   }
 
@@ -81,6 +81,7 @@
     align-items: center;
     justify-content: space-around;
     width: 100%;
+    padding-top: var(--space);
     padding-bottom: var(--space);
   }
 
