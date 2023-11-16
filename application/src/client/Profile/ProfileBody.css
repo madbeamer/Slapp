@@ -2,16 +2,17 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  max-height: calc(100vh - 145px);
   overflow-y: auto;
 
-  .profile-image {
+  & .profile-image {
     width: 50%;
     height: 50%;
     border-radius: 50%;
     background-color: #222222;
   }
 
-  .profile-image-container {
+  & .profile-image-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,73 +20,75 @@
     /* overflow: hidden; */
   }
 
-  .profile-name {
+  & .profile-name {
+    display: flex;
+    justify-content: center;
     font-style: italic;
-    color: #999999;
+    color: var(--secondary-text-color);
   }
 
-  .profile-email {
-    color: #999999;
+  & .profile-email {
+    display: flex;
+    justify-content: center;
+    color: var(--secondary-text-color);
   }
 
-  .profile-button-container {
+  & .profile-button-container {
     display: flex;
     justify-content: space-between;
     padding: 3%;
   }
 
-  .profile-button {
-    border-radius: var(--border-radius);
-    background-color: var(--button-color);
+  & .profile-button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2% 9% 2% 9%;
+    border-radius: var(--border-radius);
+    background-color: var(--button-color);
+    width: 29vw;
+    padding: 1vh 0 1vh 0;
   }
 
-  .profile-button:hover {
+  & .profile-button:hover {
     background-color: var(--selected-color);
   }
 
-  .profile-line-container {
-    padding-left: var(--space);
+  & .profile-line-container {
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-left: var(--space);
   }
 
-  .profile-line-container:hover {
+  & .profile-line-container:hover {
     background-color: var(--selected-color);
   }
 
-  .spacer {
+  & .spacer {
     flex-grow: 1;
     padding: var(--space);
-  }
+    &.tall {
+      display: flex;
+      flex-direction: column;
 
-  .tall-spacer {
-    flex-grow: 1;
-    padding: var(--space);
-    display: flex;
-    flex-direction: column;
-
-    & caption {
-      text-align: left;
-      color: #999999;
-      font-size: small;
+      & div {
+        text-align: left;
+        color: var(--secondary-text-color);
+        font-size: small;
+      }
     }
   }
 
-  .button-icon {
+  & .button-icon {
     size: 18;
   }
 
-  .line-icon {
+  & .line-icon {
+    size: 18;
     padding: var(--space);
-    size: 18;
   }
 
-  .divider-line {
+  & .divider-line {
     width: 100%;
     border-bottom: 1px solid var(--button-color);
   }

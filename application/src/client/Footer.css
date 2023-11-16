@@ -4,27 +4,22 @@ footer {
   align-items: center;
   background-color: var(--background-color);
   height: 50px;
-  margin: 0;
   border-top: 0.1px solid var(--border-color);
-}
 
-.footer-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  height: 100%;
-  color: #ffffff;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
+  & .footer-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    color: var(--bright-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
 
-.footer-button {
-  color: var(--bright-color);
-}
-
-.selected {
-  background-color: var(--bright-color);
-  color: var(--dark-color) !important;
+  & .selected {
+    background-color: var(--bright-color);
+    color: var(--dark-color) !important;
+  }
 }
