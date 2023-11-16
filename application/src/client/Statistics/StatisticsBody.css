@@ -62,4 +62,12 @@
       background-color: var(--selected-color);
     }
   }
+
+  & .trend-up-icon {
+    color: var(--selected-color);
+  }
+
+  & .trend-down-icon {
+    color: var(--dark-color);
+  }
 }
