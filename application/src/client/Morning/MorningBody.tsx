@@ -38,14 +38,6 @@ function MorningInputBody() {
 
   // helper functions:
 
-  function handleHabitClick(e: React.MouseEvent) {
-    if (!(e.target instanceof HTMLElement)) return;
-
-    if (e.target.classList.contains("clicked"))
-      e.target.classList.remove("clicked");
-    else e.target.classList.add("clicked");
-  }
-
   function CardWithSlider(props: {
     inputTitle: string;
     sliderList: Array<string>;
