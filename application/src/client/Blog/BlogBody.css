@@ -6,16 +6,16 @@
   overflow-y: auto;
 
   .article-card {
-    width: 300px;
-    margin: 20px;
-    margin-top: 0px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    width: 100%;
+    margin: var(--space);
+    margin-top: 0;
+    padding: var(--space);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     &:first-child {
-      margin-top: 20px;
+      margin-top: var(--space);
     }
   }
 
