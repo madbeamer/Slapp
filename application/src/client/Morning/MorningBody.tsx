@@ -1,7 +1,7 @@
 import "./MorningBody.css";
 import { useNavigate } from "react-router-dom";
 
-function MorningInputBody() {
+function MorningBody() {
   const navigate = useNavigate();
 
   const handleModeClick = (path: string) => {
@@ -57,4 +57,4 @@ function MorningInputBody() {
   }
 }
 
-export default MorningInputBody;
+export default MorningBody;

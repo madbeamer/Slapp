@@ -3,7 +3,7 @@ import Header from "../Header";
 import StatisticsBody from "./StatisticsBody";
 import Footer from "../Footer";
 
-function Evening() {
+function Statistics() {
   return (
     <>
       <Layout>
@@ -15,4 +15,4 @@ function Evening() {
   );
 }
 
-export default Evening;
+export default Statistics;

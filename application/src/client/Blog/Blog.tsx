@@ -3,7 +3,7 @@ import Header from "../Header";
 import BlogBody from "./BlogBody";
 import Footer from "../Footer";
 
-function Evening() {
+function Blog() {
   return (
     <>
       <Layout>
@@ -15,4 +15,4 @@ function Evening() {
   );
 }
 
-export default Evening;
+export default Blog;
