@@ -55,6 +55,8 @@
     border: none;
     background-color: var(--dark-color);
     color: var(--text-color);
+    min-height: 30px;
+    cursor: pointer;
 
     &:hover {
       background-color: var(--selected-color);
