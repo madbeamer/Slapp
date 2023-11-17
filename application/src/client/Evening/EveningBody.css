@@ -118,7 +118,7 @@
     bottom: 9%;
     right: 7%;
     background-color: var(--bright-color);
-    color: white;
+    color: var(--dark-color);
     border: none;
     border-radius: 50px;
     text-align: center;
