@@ -6,14 +6,6 @@
   max-height: calc(100vh - 114.5px);
   overflow-y: auto;
 
-  > h1 {
-    text-align: center;
-    font-size: 1em;
-    margin: 0;
-    padding-bottom: var(--space);
-    padding-top: var(--space);
-  }
-
   .top-buttons {
     display: flex;
     flex-direction: row;
@@ -22,55 +14,66 @@
     width: 100%;
     padding-top: var(--space);
     padding-bottom: var(--space);
+
+    .mode-button,
+    .submit-button {
+      padding: 12px;
+      background-color: var(--dark-color);
+      color: var(--text-color);
+      border: none;
+      cursor: pointer;
+      font-size: 1.25rem;
+      border-radius: var(--border-radius);
+    }
+
+    .mode-button:hover,
+    .submit-button:hover {
+      background-color: var(--selected-color);
+    }
   }
 
-  .mode-button,
-  .submit-button {
-    padding: 12px;
-    background-color: var(--dark-color);
-    color: var(--text-color);
-    border: none;
-    cursor: pointer;
-    font-size: 1.25rem;
-    border-radius: var(--border-radius);
-  }
-
-  .mode-button:hover,
-  .submit-button:hover {
-    background-color: var(--selected-color);
+  .habit-container {
+    padding-bottom: 80px;
+    > h1 {
+      text-align: center;
+      font-size: 1em;
+      margin: 0;
+      padding-bottom: var(--space);
+      padding-top: var(--space);
+    }
   }
 
   .card + .card {
     border-top: 1px solid var(--border-color);
   }
 
-  .button-grid {
+  .habit-body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
     /* max-height: 450px;
     min-height: 450px; */
     overflow-y: auto;
-  }
 
-  .habit-button.selected {
-    background-color: var(--selected-color);
-    color: white !important;
-  }
+    .habit-button.selected {
+      background-color: var(--selected-color);
+      color: white !important;
+    }
 
-  .habit-button {
-    width: 100%;
-    padding: var(--space);
-    background-color: var(--button-color);
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-  }
+    .habit-button {
+      width: 100%;
+      padding: var(--space);
+      background-color: var(--button-color);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
 
-  .habit-button:hover {
-    background-color: var(--selected-color);
+    /* .habit-button:hover {
+      background-color: var(--selected-color);
+    } */
   }
 
   .add-button-container {
@@ -123,5 +126,47 @@
     border-radius: 50px;
     text-align: center;
     cursor: pointer;
+  }
+
+  .buttonContainer {
+    position: fixed;
+    left: 5%;
+    bottom: 50px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-evenly;
+    gap: 10px;
+
+    .addCustomHabitButton {
+      width: 90%;
+      height: 50px;
+      background-color: var(--dark-color);
+      border-radius: var(--border-radius);
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    .deleteHabitButton {
+      width: 90%;
+      height: 50px;
+      background-color: rgb(99, 0, 0);
+      border-radius: var(--border-radius);
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    .addCustomHabitText {
+      width: 90%;
+      display: flex;
+      align-items: center;
+      padding-top: var(--space);
+      padding-bottom: var(--space);
+    }
   }
 }

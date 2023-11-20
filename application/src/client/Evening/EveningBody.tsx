@@ -1,8 +1,7 @@
 import "./EveningBody.css";
 import { useState, useEffect } from "react";
-import { FaEdit } from "react-icons/fa";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import HabitPopup from "./HabitPopup/HabitPopup";
 
 function EveningBody({ switchValue }: { switchValue: string }) {
   useEffect(() => {}, [switchValue]);
@@ -25,7 +24,9 @@ function EveningBody({ switchValue }: { switchValue: string }) {
   ]);
 
   const [habits, setHabits] = useState(someHabits);
-  const [openPopup, setPopup] = useState(false);
+  const [isAddingHabit, setIsAddingHabit] = useState(false);
+  const [newButtonLabel, setNewButtonLabel] = useState("");
+  const [isDeletingHabit, setDeletingHabit] = useState(false);
 
   return switchValue === "A" ? (
     <main className="evening-body-container">
@@ -43,30 +44,58 @@ function EveningBody({ switchValue }: { switchValue: string }) {
         <button className="submit-button">Submit</button>
       </div>
 
-      <h1>Select all that apply:</h1>
-      <div className="button-grid card">
-        <WriteHabitList habits={habits} />
+      <div className="habit-container">
+        <h1>Select all that apply:</h1>
+        <div className="habit-body card">
+          <WriteHabitList habits={habits} />
+        </div>
       </div>
 
-      <button
-        className="addHabitButton"
-        onClick={() => {
-          setPopup(true);
-        }}
-      >
-        <FaEdit size={20} />
-      </button>
-
-      <HabitPopup
-        open={openPopup}
-        setPopup={setPopup}
-        habitList={habits}
-        setHabits={setHabits}
-      />
+      <div className="buttonContainer">
+        {isAddingHabit ? (
+          <div className="addCustomHabitText">
+            <input
+              type="text"
+              placeholder="Enter new habit"
+              value={newButtonLabel}
+              onChange={(e) => setNewButtonLabel(e.target.value)}
+              style={{ width: "100%", height: "90%" }}
+            />
+            <button className="save-button" onClick={handleSaveButton}>
+              Save
+            </button>
+          </div>
+        ) : isDeletingHabit ? (
+          <button className="deleteHabitButton" onClick={handleExitDelete}>
+            Back
+          </button>
+        ) : (
+          <>
+            <button className="addCustomHabitButton" onClick={handleAddButton}>
+              <FaPlus size={24} />
+            </button>
+            <button className="deleteHabitButton" onClick={handleEnterDelete}>
+              <FaMinus size={20} />
+            </button>
+          </>
+        )}
+      </div>
     </main>
   );
 
   // helper functions:
+
+  function handleAddButton() {
+    setIsAddingHabit(true);
+  }
+
+  function handleExitDelete() {
+    setDeletingHabit(false);
+  }
+
+  function handleEnterDelete() {
+    setDeletingHabit(true);
+  }
 
   function WriteHabitList(props: {
     habits: Map<string, { active: boolean; selected: boolean }>;
@@ -106,6 +135,20 @@ function EveningBody({ switchValue }: { switchValue: string }) {
 
   function handleButtonClick(path: string) {
     navigate(path);
+  }
+
+  function handleSaveButton() {
+    if (newButtonLabel.trim() !== "") {
+      setHabits((prev) => {
+        const m = new Map(prev);
+        m.set(newButtonLabel, { active: false, selected: false });
+        return m;
+      });
+      setNewButtonLabel("");
+      setIsAddingHabit(false);
+    } else {
+      setIsAddingHabit(false);
+    }
   }
 
   function handleHabitClick(e: React.MouseEvent) {
