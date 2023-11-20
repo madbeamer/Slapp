@@ -64,10 +64,10 @@
   }
 
   & .trend-up-icon {
-    color: var(--selected-color);
+    color: rgb(224, 255, 178);
   }
 
   & .trend-down-icon {
-    color: var(--dark-color);
+    color: rgb(255, 165, 165);
   }
 }
