@@ -59,14 +59,14 @@ function EveningBody({ switchValue }: { switchValue: string }) {
               placeholder="Enter new habit"
               value={newButtonLabel}
               onChange={(e) => setNewButtonLabel(e.target.value)}
-              style={{ width: "100%", height: "90%" }}
+              style={{ width: "100%", height: "80%" }}
             />
             <button className="save-button" onClick={handleSaveButton}>
               Save
             </button>
           </div>
         ) : isDeletingHabit ? (
-          <button className="deleteHabitButton" onClick={handleExitDelete}>
+          <button className="exitDeleteHabit" onClick={handleExitDelete}>
             Back
           </button>
         ) : (
@@ -74,7 +74,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
             <button className="addCustomHabitButton" onClick={handleAddButton}>
               <FaPlus size={24} />
             </button>
-            <button className="deleteHabitButton" onClick={handleEnterDelete}>
+            <button className="enterDeleteHabit" onClick={handleEnterDelete}>
               <FaMinus size={20} />
             </button>
           </>
