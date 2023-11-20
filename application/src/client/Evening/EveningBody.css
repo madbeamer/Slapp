@@ -3,7 +3,7 @@
   flex-direction: column;
   flex: 1;
   padding: 0 var(--space);
-  max-height: calc(100vh - 142px);
+  max-height: calc(100vh - 114.5px);
   overflow-y: auto;
 
   > h1 {
