@@ -43,11 +43,43 @@
     }
   }
 
-  .card + .card {
-    border-top: 1px solid var(--border-color);
+  .habit-body.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow-y: auto;
+
+    .habit-slider-container {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+
+      .habit-slider {
+        width: 60%;
+        padding: var(--space);
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        color: #ffffff;
+        background-color: var(--button-color);
+        border-radius: var(--border-radius);
+        transition: 0.2s;
+      }
+
+      .habit-slider.selected {
+        background-color: var(--selected-color);
+        margin-left: 40%;
+      }
+      .habit-slider.deleting {
+        background-color: rgba(255, 0, 0, 0.1);
+        margin-left: 0;
+        width: 100%;
+      }
+    }
   }
 
-  .habit-body {
+  .habit-body.multi {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
@@ -78,7 +110,6 @@
     } */
   }
 
-  /* I noticed that "save-button" isn't used yet, so here's a comment. */
   .save-button {
     padding: var(--space);
     background-color: var(--dark-color);
