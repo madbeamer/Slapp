@@ -122,5 +122,6 @@
     border: none;
     border-radius: 50px;
     text-align: center;
+    cursor: pointer;
   }
 }

@@ -70,8 +70,6 @@ function EveningBody() {
       if (value.active) activeList.push(key);
     });
 
-    console.log(activeList);
-
     return (
       <>
         {activeList.map((value, key) => {

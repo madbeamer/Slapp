@@ -116,8 +116,6 @@ export default function HabitPopup(props: {
         e.target.classList.remove("active");
       else e.target.classList.add("active");
     }
-
-    console.log(e.target.classList);
   }
 
   // Little explanation:
@@ -130,7 +128,6 @@ export default function HabitPopup(props: {
     >;
   }) {
     if (props.habitList.size == 0) {
-      console.log("empty!");
       return;
     }
 
@@ -144,8 +141,6 @@ export default function HabitPopup(props: {
       }
       activeList.push(key);
     });
-
-    console.log("inPopup");
 
     return (
       <>
