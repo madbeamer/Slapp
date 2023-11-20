@@ -28,11 +28,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
   const [newButtonLabel, setNewButtonLabel] = useState("");
   const [isDeletingHabit, setDeletingHabit] = useState(false);
 
-  return switchValue === "A" ? (
-    <main className="evening-body-container">
-      <div>This is prototype A</div>
-    </main>
-  ) : (
+  return (
     <main className="evening-body-container">
       <div className="top-buttons">
         <button
@@ -47,7 +43,11 @@ function EveningBody({ switchValue }: { switchValue: string }) {
       <div className="habit-container">
         <h1>Select all that apply:</h1>
         <div className="habit-body card">
-          <WriteHabitList habits={habits} />
+          {switchValue === "A" ? (
+            <WriteHabitList habits={habits} />
+          ) : (
+            <div>This is prototype A</div>
+          )}
         </div>
       </div>
 
