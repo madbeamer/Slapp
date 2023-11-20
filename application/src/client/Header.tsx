@@ -28,7 +28,7 @@ function Header() {
       case "/profile":
         return "Profile";
       case "/sleep":
-        return "Sleep now";
+        return "Sleep";
       default:
         return "Default";
     }
