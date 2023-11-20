@@ -55,11 +55,6 @@
     min-height: 450px; */
     overflow-y: auto;
 
-    .habit-button.selected {
-      background-color: var(--selected-color);
-      color: white !important;
-    }
-
     .habit-button {
       width: 100%;
       padding: var(--space);
@@ -69,6 +64,15 @@
       color: #ffffff;
       border: none;
       cursor: pointer;
+    }
+
+    .habit-button.selected {
+      background-color: var(--selected-color);
+      color: white !important;
+    }
+
+    .habit-button.deleting {
+      background-color: rgba(255, 0, 0, 0.1);
     }
 
     /* .habit-button:hover {

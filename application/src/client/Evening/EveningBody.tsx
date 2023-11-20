@@ -108,7 +108,18 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     return (
       <>
         {activeList.map((value, key) => {
-          if (props.habits.get(value)?.selected)
+          if (!props.habits.get(value)?.active) return;
+          if (isDeletingHabit) {
+            return (
+              <button
+                key={key}
+                className="habit-button deleting"
+                onClick={handleHabitClick}
+              >
+                {value}
+              </button>
+            );
+          } else if (props.habits.get(value)?.selected) {
             return (
               <button
                 key={key}
@@ -118,7 +129,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
                 {value}
               </button>
             );
-          else
+          } else
             return (
               <button
                 key={key}
@@ -141,7 +152,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     if (newButtonLabel.trim() !== "") {
       setHabits((prev) => {
         const m = new Map(prev);
-        m.set(newButtonLabel, { active: false, selected: false });
+        m.set(newButtonLabel, { active: true, selected: false });
         return m;
       });
       setNewButtonLabel("");
@@ -154,9 +165,18 @@ function EveningBody({ switchValue }: { switchValue: string }) {
   function handleHabitClick(e: React.MouseEvent) {
     if (!(e.target instanceof HTMLElement)) return;
 
-    if (e.target.classList.contains("selected"))
-      e.target.classList.remove("selected");
-    else e.target.classList.add("selected");
+    if (isDeletingHabit) {
+      setHabits((prev) => {
+        if (!(e.target instanceof HTMLElement)) return prev;
+        const m = new Map(prev);
+        m.delete(e.target.innerHTML);
+        return m;
+      });
+    } else {
+      if (e.target.classList.contains("selected"))
+        e.target.classList.remove("selected");
+      else e.target.classList.add("selected");
+    }
   }
 }
 
