@@ -3,12 +3,18 @@ import Header from "../Header";
 import LoginBody from "./LoginBody";
 import Footer from "../Footer";
 
-function Login() {
+function Login({
+  switchValue,
+  setSwitchValue,
+}: {
+  switchValue: string;
+  setSwitchValue: React.Dispatch<React.SetStateAction<string>>;
+}) {
   return (
     <>
       <Layout>
         <Header />
-        <LoginBody />
+        <LoginBody switchValue={switchValue} setSwitchValue={setSwitchValue} />
         <Footer />
       </Layout>
     </>

@@ -1,10 +1,12 @@
 import "./EveningBody.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import HabitPopup from "./HabitPopup/HabitPopup";
 
-function EveningBody() {
+function EveningBody({ switchValue }: { switchValue: string }) {
+  useEffect(() => {}, [switchValue]);
+
   const navigate = useNavigate();
 
   const someHabits = new Map([
@@ -25,7 +27,11 @@ function EveningBody() {
   const [habits, setHabits] = useState(someHabits);
   const [openPopup, setPopup] = useState(false);
 
-  return (
+  return switchValue === "A" ? (
+    <main className="evening-body-container">
+      <div>This is prototype A</div>
+    </main>
+  ) : (
     <main className="evening-body-container">
       <div className="top-buttons">
         <button
