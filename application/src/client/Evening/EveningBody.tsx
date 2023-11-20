@@ -28,8 +28,6 @@ function EveningBody({ switchValue }: { switchValue: string }) {
   const [newButtonLabel, setNewButtonLabel] = useState("");
   const [isDeletingHabit, setDeletingHabit] = useState(false);
 
-  console.log(habits);
-
   return (
     <main className="evening-body-container">
       <div className="top-buttons">
