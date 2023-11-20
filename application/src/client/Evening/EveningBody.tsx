@@ -1,6 +1,6 @@
 import "./EveningBody.css";
 import { useState } from "react";
-import { FaPlus } from "react-icons/fa";
+import { FaEdit, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import HabitPopup from "./HabitPopup/HabitPopup";
 
@@ -48,7 +48,7 @@ function EveningBody() {
           setPopup(true);
         }}
       >
-        <FaPlus />
+        <FaEdit size={20} />
       </button>
 
       <HabitPopup
@@ -69,8 +69,6 @@ function EveningBody() {
     props.habits.forEach((value, key) => {
       if (value.active) activeList.push(key);
     });
-
-    console.log(activeList);
 
     return (
       <>
