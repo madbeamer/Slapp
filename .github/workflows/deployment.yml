@@ -38,7 +38,9 @@ jobs:
       - name: Navigate to application directory
         run: cd slapp/application
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm config set cache /tmp/npm-cache
+          npm install
       - name: Build
         run: npm run build
       - name: Setup Pages
