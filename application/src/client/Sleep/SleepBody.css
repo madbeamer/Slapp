@@ -1,0 +1,123 @@
+.sleep-body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  max-height: calc(100vh - 114.5px);
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  padding: 0 var(--space);
+
+  & .alarm-container {
+    border-top: 1px solid #ccc;
+    margin-top: var(--space);
+  }
+
+  & h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  & h2 {
+    margin-bottom: 10px;
+  }
+
+  & label {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & span {
+    display: inline-block;
+    width: 150px;
+  }
+
+  & .react-switch-bg {
+    width: 100%;
+  }
+
+  & select,
+  input[type="time"] {
+    min-height: 35px;
+    width: 100%;
+  }
+
+  & .react-switch {
+    vertical-align: middle;
+  }
+
+  & .react-switch .react-switch-bg {
+    border-radius: 15px;
+  }
+
+  & .react-switch .react-switch-handle {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  & .sleep-options {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
+  & .sleep-button {
+    color: var(--bright-color);
+    font-size: 1.2rem;
+    min-height: 50px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    background-color: var(--dark-color);
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: var(--space);
+  }
+
+  & .countdown-popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    color: var(--bright-color);
+    transform: translate(-50%, -50%);
+    background-color: var(--dark-color);
+    border: none;
+    border-radius: var(--border-radius);
+    z-index: 9999;
+    width: 250px;
+    height: 250px;
+    padding: 0;
+    margin: 0;
+
+    & .cancel-button {
+      color: var(--bright-color);
+      background-color: var(--dark-color);
+      font-size: 2rem;
+      border-radius: var(--border-radius);
+      border: 0.1px solid var(--bright-color);
+      cursor: pointer;
+      margin-bottom: var(--space);
+    }
+
+    & p {
+      font-size: 6em;
+      margin: 0;
+      padding-top: 60px;
+    }
+  }
+
+  .blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px); /* Adjust the blur amount as needed */
+    z-index: 9998; /* Lower z-index than the popup to keep it behind */
+  }
+}

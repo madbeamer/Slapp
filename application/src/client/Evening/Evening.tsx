@@ -3,12 +3,12 @@ import Header from "../Header";
 import EveningBody from "./EveningBody";
 import Footer from "../Footer";
 
-function Evening() {
+function Evening({ switchValue }: { switchValue: string }) {
   return (
     <>
       <Layout>
         <Header />
-        <EveningBody />
+        <EveningBody switchValue={switchValue} />
         <Footer />
       </Layout>
     </>

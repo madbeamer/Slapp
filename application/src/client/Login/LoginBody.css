@@ -3,6 +3,9 @@
   flex-direction: column;
   align-items: center;
   /* background-color: cyan; */
+  padding: var(--space);
+  max-height: calc(100vh - 114.5px);
+  overflow-y: auto;
 
   form {
     width: 100px;

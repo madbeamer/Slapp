@@ -1,54 +1,37 @@
 import "./EveningBody.css";
-import { useState } from "react";
-import { FaPlus } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { FaEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import HabitPopup from "./HabitPopup/HabitPopup";
 
-function EveningBody() {
+function EveningBody({ switchValue }: { switchValue: string }) {
+  useEffect(() => {}, [switchValue]);
+
   const navigate = useNavigate();
 
-  const handleButtonClick = (path: string) => {
-    navigate(path);
-  };
+  const someHabits = new Map([
+    ["Wake up early", { active: true, selected: false }],
+    ["Exercise for at least 30 minutes", { active: true, selected: false }],
+    ["Eat a balanced breakfast", { active: true, selected: false }],
+    ["Set specific goals for the day", { active: true, selected: false }],
+    ["Take short breaks every hour", { active: true, selected: false }],
+    ["Drink plenty of water", { active: true, selected: false }],
+    ["Practice mindfulness or meditation", { active: true, selected: false }],
+    ["Read for at least 20 minutes", { active: true, selected: false }],
+    ["Connect with a friend/family member", { active: true, selected: false }],
+    ["Plan and prepare a healthy lunch", { active: true, selected: false }],
+    ["Review and reflect on your day", { active: true, selected: false }],
+    ["Get 7-8 hours of quality sleep", { active: true, selected: false }],
+  ]);
 
-  const defaultHabits = [
-    "Wake up early",
-    "Exercise for at least 30 minutes",
-    "Eat a balanced breakfast",
-    "Set specific goals for the day",
-    "Take short breaks every hour",
-    "Drink plenty of water",
-    "Practice mindfulness or meditation",
-    "Read for at least 20 minutes",
-    "Connect with a friend or family member",
-    "Plan and prepare a healthy lunch",
-    "Review and reflect on the day's accomplishments",
-    "Get 7-8 hours of quality sleep",
-  ];
-  const [buttonLabels, setButtonLabels] = useState(defaultHabits);
-  const [isAddingButton, setIsAddingButton] = useState(false);
-  const [newButtonLabel, setNewButtonLabel] = useState("");
+  const [habits, setHabits] = useState(someHabits);
+  const [openPopup, setPopup] = useState(false);
 
-  const addNewButton = () => {
-    setIsAddingButton(true);
-  };
-
-  const saveNewButton = () => {
-    if (newButtonLabel.trim() !== "") {
-      setButtonLabels((prevLabels) => [...prevLabels, newButtonLabel]);
-      setNewButtonLabel("");
-      setIsAddingButton(false);
-    }
-  };
-
-  function handleHabitClick(e: React.MouseEvent) {
-    if (!(e.target instanceof HTMLElement)) return;
-
-    if (e.target.classList.contains("selected"))
-      e.target.classList.remove("selected");
-    else e.target.classList.add("selected");
-  }
-
-  return (
+  return switchValue === "A" ? (
+    <main className="evening-body-container">
+      <div>This is prototype A</div>
+    </main>
+  ) : (
     <main className="evening-body-container">
       <div className="top-buttons">
         <button
@@ -62,36 +45,76 @@ function EveningBody() {
 
       <h1>Select all that apply:</h1>
       <div className="button-grid card">
-        {buttonLabels.map((label) => (
-          <button
-            key={label}
-            className="habit-button"
-            onClick={handleHabitClick}
-          >
-            {label}
-          </button>
-        ))}
+        <WriteHabitList habits={habits} />
       </div>
-      {isAddingButton ? (
-        <div className="add-button-container">
-          <input
-            type="text"
-            placeholder="Enter new habit"
-            value={newButtonLabel}
-            onChange={(e) => setNewButtonLabel(e.target.value)}
-            style={{ width: "100%", height: "40px" }}
-          />
-          <button className="save-button" onClick={saveNewButton}>
-            Save
-          </button>
-        </div>
-      ) : (
-        <button className="add-button" onClick={addNewButton}>
-          <FaPlus size={24} />
-        </button>
-      )}
+
+      <button
+        className="addHabitButton"
+        onClick={() => {
+          setPopup(true);
+        }}
+      >
+        <FaEdit size={20} />
+      </button>
+
+      <HabitPopup
+        open={openPopup}
+        setPopup={setPopup}
+        habitList={habits}
+        setHabits={setHabits}
+      />
     </main>
   );
+
+  // helper functions:
+
+  function WriteHabitList(props: {
+    habits: Map<string, { active: boolean; selected: boolean }>;
+  }) {
+    const activeList = new Array<string>();
+    props.habits.forEach((value, key) => {
+      if (value.active) activeList.push(key);
+    });
+
+    return (
+      <>
+        {activeList.map((value, key) => {
+          if (props.habits.get(value)?.selected)
+            return (
+              <button
+                key={key}
+                className="habit-button selected"
+                onClick={handleHabitClick}
+              >
+                {value}
+              </button>
+            );
+          else
+            return (
+              <button
+                key={key}
+                className="habit-button"
+                onClick={handleHabitClick}
+              >
+                {value}
+              </button>
+            );
+        })}
+      </>
+    );
+  }
+
+  function handleButtonClick(path: string) {
+    navigate(path);
+  }
+
+  function handleHabitClick(e: React.MouseEvent) {
+    if (!(e.target instanceof HTMLElement)) return;
+
+    if (e.target.classList.contains("selected"))
+      e.target.classList.remove("selected");
+    else e.target.classList.add("selected");
+  }
 }
 
 export default EveningBody;

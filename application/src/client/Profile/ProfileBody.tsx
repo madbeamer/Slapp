@@ -4,6 +4,7 @@ import {
   FaUser,
   FaLock,
   FaUserFriends,
+  FaSignOutAlt,
   FaStar,
   FaLink,
   FaKey,
@@ -11,6 +12,7 @@ import {
   FaPalette,
   FaGlobe,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 interface ProfileButtonProps {
   icon: any;
@@ -69,6 +71,11 @@ function ProfileLineContainer({
 }
 
 function ProfileBody() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    navigate("/login");
+  };
+
   return (
     <main className="profile-body-container">
       <div className="profile-image-container">
@@ -115,6 +122,11 @@ function ProfileBody() {
         text="Language"
         smallText="English"
       />
+
+      <button type="button" className="logout-button" onClick={handleLogout}>
+        Logout
+        <FaSignOutAlt className="logout-icon" />
+      </button>
     </main>
   );
 }
