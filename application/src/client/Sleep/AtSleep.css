@@ -4,7 +4,7 @@
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
-  background-color: black;
+  background-color: var(--background-color);
   color: var(--text-color);
   gap: var(--space);
 
