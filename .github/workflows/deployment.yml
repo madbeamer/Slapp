@@ -35,12 +35,9 @@ jobs:
         with:
           node-version: latest
           cache: "npm"
-      - name: Navigate to application directory
-        run: cd slapp/application
+          cache-dependency-path: "./application/package-lock.json"
       - name: Install dependencies
-        run: |
-          npm config set cache /tmp/npm-cache
-          npm install
+        run: npm install
       - name: Build
         run: npm run build
       - name: Setup Pages
@@ -48,7 +45,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload dist repository
           path: "./application/dist"
       - name: Deploy to GitHub Pages
         id: deployment
