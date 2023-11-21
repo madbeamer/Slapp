@@ -1,6 +1,19 @@
 .login-body-container {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  /* TODO */
+  align-items: center;
+  /* background-color: cyan; */
+
+  form {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo {
+    margin: 8vh 0;
+    width: 100px;
+    height: 100px;
+  }
 }
