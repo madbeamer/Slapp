@@ -36,12 +36,12 @@ jobs:
           node-version: latest
           cache: "npm"
           cache-dependency-path: "./application/package-lock.json"
-      - name: Set working directory
-        run: cd ./application
       - name: Install dependencies
         run: npm install
+        working-directory: ./application
       - name: Build
         run: npm run build
+        working-directory: ./application
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
