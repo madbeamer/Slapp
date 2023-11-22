@@ -23,10 +23,25 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     ["Get 7-8 hours of quality sleep", { active: true, selected: false }],
   ]);
 
-  const [habits, setHabits] = useState(someHabits);
+  if (JSON.parse(sessionStorage.getItem("habits")!, reviver) == null) {
+    sessionStorage.setItem(
+      "habits",
+      JSON.stringify(Array.from(someHabits), replacer)
+    );
+  }
+
+  const [habits, setHabits] = useState(
+    JSON.parse(sessionStorage.getItem("habits")!, reviver) as Map<
+      string,
+      { active: boolean; selected: boolean }
+    >
+  );
   const [isAddingHabit, setIsAddingHabit] = useState(false);
   const [newButtonLabel, setNewButtonLabel] = useState("");
   const [isDeletingHabit, setDeletingHabit] = useState(false);
+
+  console.log(JSON.parse(sessionStorage.getItem("habits")!, reviver));
+  console.log(habits);
 
   return (
     <main className="evening-body-container">
@@ -83,6 +98,29 @@ function EveningBody({ switchValue }: { switchValue: string }) {
 
   // helper functions:
 
+  function replacer(
+    _key: string,
+    value: { active: boolean; selected: boolean }
+  ) {
+    if (value instanceof Map) {
+      return {
+        dataType: "Map",
+        value: Array.from(value.entries()), // or with spread: value: [...value]
+      };
+    } else {
+      return value;
+    }
+  }
+
+  function reviver(_key: string, value: any) {
+    if (typeof value === "object" && value !== null) {
+      if (value.dataType === "Map") {
+        return new Map(value.value);
+      }
+    }
+    return value;
+  }
+
   function handleAddButton() {
     setIsAddingHabit(true);
   }
@@ -111,6 +149,8 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     } else {
       setIsAddingHabit(false);
     }
+
+    sessionStorage.setItem("habits", JSON.stringify(habits, replacer));
   }
 
   function handleHabitClick(e: React.MouseEvent) {
@@ -135,6 +175,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
         let a = prev.get(e.target.innerHTML)!.active;
         let s = prev.get(e.target.innerHTML)!.selected;
         newMap.set(e.target.innerHTML, { active: a, selected: !s });
+        sessionStorage.setItem("habits", JSON.stringify(newMap, replacer));
         return newMap;
       });
     }
@@ -176,7 +217,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     habits: Map<string, { active: boolean; selected: boolean }>;
   }) {
     const activeList = new Array<string>();
-    props.habits.forEach((value, key) => {
+    habits.forEach((value, key) => {
       if (value.active) activeList.push(key);
     });
 
