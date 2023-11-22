@@ -124,9 +124,19 @@ function EveningBody({ switchValue }: { switchValue: string }) {
         return m;
       });
     } else {
-      if (e.target.classList.contains("selected"))
+      if (e.target.classList.contains("selected")) {
         e.target.classList.remove("selected");
-      else e.target.classList.add("selected");
+      } else {
+        e.target.classList.add("selected");
+      }
+      setHabits((prev) => {
+        if (!(e.target instanceof HTMLElement)) return prev;
+        let newMap = new Map(prev);
+        let a = prev.get(e.target.innerHTML)!.active;
+        let s = prev.get(e.target.innerHTML)!.selected;
+        newMap.set(e.target.innerHTML, { active: a, selected: !s });
+        return newMap;
+      });
     }
   }
 
