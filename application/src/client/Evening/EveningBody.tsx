@@ -4,21 +4,22 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 function EveningBody({ switchValue }: { switchValue: string }) {
+  // useful const's:
   const navigate = useNavigate();
 
   const someHabits = new Map([
-    ["Wake up early", { active: true, selected: false }],
-    ["Exercise for at least 30 minutes", { active: true, selected: false }],
-    ["Eat a balanced breakfast", { active: true, selected: false }],
-    ["Set specific goals for the day", { active: true, selected: false }],
-    ["Take short breaks every hour", { active: true, selected: false }],
-    ["Drink plenty of water", { active: true, selected: false }],
-    ["Practice mindfulness or meditation", { active: true, selected: false }],
-    ["Read for at least 20 minutes", { active: true, selected: false }],
-    ["Connect with a friend/family member", { active: true, selected: false }],
-    ["Plan and prepare a healthy lunch", { active: true, selected: false }],
-    ["Review and reflect on your day", { active: true, selected: false }],
-    ["Get 7-8 hours of quality sleep", { active: true, selected: false }],
+    ["Smoking", { active: true, selected: false }],
+    ["Stress", { active: true, selected: false }],
+    ["Late dinner", { active: true, selected: false }],
+    ["Hungry", { active: true, selected: false }],
+    ["Thirsty", { active: true, selected: false }],
+    ["Alcohol", { active: true, selected: false }],
+    ["Coffee", { active: true, selected: false }],
+    ["Screentime", { active: true, selected: false }],
+    ["Exercise", { active: true, selected: false }],
+    ["Shower", { active: true, selected: false }],
+    ["Medication", { active: true, selected: false }],
+    ["Meditation", { active: true, selected: false }],
   ]);
 
   // init Sessionstorage:
