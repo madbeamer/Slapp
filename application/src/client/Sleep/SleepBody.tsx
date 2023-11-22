@@ -19,12 +19,18 @@ function SleepBody({
   const [showPopup, setShowPopup] = useState(false);
   const [showBlurBackground, setShowBlurBackground] = useState(false);
 
+  const [airplaneMode, setAirplaneMode] = useState(false);
+
   const handleMeditationToggle = (checked: boolean) => {
     setIsMeditationOn(checked);
   };
 
   const handleAlarmToggle = (checked: boolean) => {
     setIsAlarmOn(checked);
+  };
+
+  const handleAirplaneModeToggle = (checked: boolean) => {
+    setAirplaneMode(checked);
   };
 
   const handleMeditationMelodyChange = (event: any) => {
@@ -169,7 +175,19 @@ function SleepBody({
             </div>
           )}
         </div>
+        <div className="more-settings-container">
+          <h2>More Settings</h2>
+          <label>
+            <span>Airplane Mode</span>
+            <ReactSwitch
+              onChange={handleAirplaneModeToggle}
+              checked={airplaneMode}
+              onColor="#f2ac3c"
+            />
+          </label>
+        </div>
       </div>
+
       {showBlurBackground && <div className="blur-background" />}
 
       {showPopup && (
