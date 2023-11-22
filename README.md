@@ -6,4 +6,4 @@ This is the final project for the HCI course at ETH Zurich. We used Vite + React
 
 ## Website
 
-The deployed website can be found here: https://madbeamer.github.io/slapp/#/.
+The deployed website can be found here: https://www.slapp.fit/.
