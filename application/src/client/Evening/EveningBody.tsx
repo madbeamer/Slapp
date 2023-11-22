@@ -4,8 +4,6 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 function EveningBody({ switchValue }: { switchValue: string }) {
-  useEffect(() => {}, [switchValue]);
-
   const navigate = useNavigate();
 
   const someHabits = new Map([
@@ -23,13 +21,13 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     ["Get 7-8 hours of quality sleep", { active: true, selected: false }],
   ]);
 
+  // init Sessionstorage:
   if (JSON.parse(sessionStorage.getItem("habits")!, reviver) == null) {
-    sessionStorage.setItem(
-      "habits",
-      JSON.stringify(Array.from(someHabits), replacer)
-    );
+    sessionStorage.setItem("habits", JSON.stringify(someHabits, replacer));
   }
 
+  // useStates & useEffect:
+  useEffect(() => {}, [switchValue]);
   const [habits, setHabits] = useState(
     JSON.parse(sessionStorage.getItem("habits")!, reviver) as Map<
       string,
@@ -40,9 +38,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
   const [newButtonLabel, setNewButtonLabel] = useState("");
   const [isDeletingHabit, setDeletingHabit] = useState(false);
 
-  console.log(JSON.parse(sessionStorage.getItem("habits")!, reviver));
-  console.log(habits);
-
+  // return...
   return (
     <main className="evening-body-container">
       <div className="top-buttons">
@@ -98,10 +94,8 @@ function EveningBody({ switchValue }: { switchValue: string }) {
 
   // helper functions:
 
-  function replacer(
-    _key: string,
-    value: { active: boolean; selected: boolean }
-  ) {
+  // helper function for parsing Map data structure
+  function replacer(_key: string, value: any) {
     if (value instanceof Map) {
       return {
         dataType: "Map",
@@ -112,6 +106,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     }
   }
 
+  // helper function for parsing Map data structure
   function reviver(_key: string, value: any) {
     if (typeof value === "object" && value !== null) {
       if (value.dataType === "Map") {
@@ -121,6 +116,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     return value;
   }
 
+  // trivial functions:
   function handleAddButton() {
     setIsAddingHabit(true);
   }
@@ -137,6 +133,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     navigate(path);
   }
 
+  // when clicked on save habit.
   function handleSaveButton() {
     if (newButtonLabel.trim() !== "") {
       setHabits((prev) => {
@@ -153,6 +150,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     sessionStorage.setItem("habits", JSON.stringify(habits, replacer));
   }
 
+  // when clicked on habit.
   function handleHabitClick(e: React.MouseEvent) {
     if (!(e.target instanceof HTMLElement)) return;
 
@@ -181,6 +179,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     }
   }
 
+  // helper function component for Sliders. Makes the Slider button itself
   function MakeSliderButton(props: {
     habitName: string;
     deleting: boolean;
@@ -213,11 +212,13 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     }
   }
 
+  // maps the habits to sliders.
+
   function WriteHabitListSlider(props: {
     habits: Map<string, { active: boolean; selected: boolean }>;
   }) {
     const activeList = new Array<string>();
-    habits.forEach((value, key) => {
+    props.habits.forEach((value, key) => {
       if (value.active) activeList.push(key);
     });
 
@@ -249,6 +250,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     );
   }
 
+  // maps habits to multi select buttons.
   function WriteHabitListMulti(props: {
     habits: Map<string, { active: boolean; selected: boolean }>;
   }) {
