@@ -2,6 +2,7 @@ import "./EveningBody.css";
 import { useState, useEffect } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { CSVLink } from "react-csv";
 
 function EveningBody({ switchValue }: { switchValue: string }) {
   // useful const's:
@@ -21,6 +22,12 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     ["Medication", { active: true, selected: false }],
     ["Meditation", { active: true, selected: false }],
   ]);
+
+  const defaultHabitList = new Array(someHabits.keys());
+  const additionalHabitList = [
+    ["Nap", "Open window", "Shopping", "Party", "Singing", "Noisy"],
+    ["Nap", "Open window", "Shopping", "Party", "Singing", "Noisy"],
+  ];
 
   // init Sessionstorage:
   if (JSON.parse(sessionStorage.getItem("habits")!, reviver) == null) {
