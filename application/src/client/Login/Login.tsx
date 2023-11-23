@@ -11,7 +11,7 @@ function Login({
   return (
     <>
       <Layout>
-        <LoginBody />
+        <LoginBody switchValue={switchValue} setSwitchValue={setSwitchValue} />
       </Layout>
     </>
   );
