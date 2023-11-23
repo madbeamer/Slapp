@@ -112,8 +112,6 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     >
   );
 
-  console.log(csvData);
-
   return (
     <main className="evening-body-container">
       <div className="top-buttons">
@@ -142,28 +140,19 @@ function EveningBody({ switchValue }: { switchValue: string }) {
           {" "}
           Day: <span>{csvData.length}</span>
         </div>
-        <div>
-          {" "}
-          Time: <span>not working...</span>
-        </div>
+        {displayCSV ? (
+          <CSVLink
+            data={csvData}
+            headers={csvHeader}
+            filename="tester_testee_date_Test Result"
+            className="downloadCSV-link"
+          >
+            Download Test Result
+          </CSVLink>
+        ) : (
+          <></>
+        )}
       </div>
-
-      {displayCSV ? (
-        <CSVLink
-          data={csvData}
-          headers={csvHeader}
-          filename="tester + testee + date- Test Result"
-          className="btn"
-          onClick={() => {
-            setDisplayCSV(false);
-            setCSVData([{ time: "0", errorNum: "0", errorRate: "0.0" }]);
-          }}
-        >
-          Download Test Result
-        </CSVLink>
-      ) : (
-        <></>
-      )}
 
       <div className="habit-container">
         <h1>Select all that apply:</h1>
@@ -252,7 +241,14 @@ function EveningBody({ switchValue }: { switchValue: string }) {
       setTesting(false);
       setDisplayCSV(true);
     } else {
-      csvData[0].time = (Date.now() / 1000).toString();
+      setDisplayCSV(false);
+      setCSVData([
+        {
+          time: (Date.now() / 1000).toString(),
+          errorNum: "0",
+          errorRate: "0.0",
+        },
+      ]);
       setTesting(true);
     }
   }
@@ -280,9 +276,6 @@ function EveningBody({ switchValue }: { switchValue: string }) {
         errorNum += 1;
       }
     }
-
-    console.log(testHabitList[csvData.length - 1]);
-    console.log(curHabits);
 
     let newEntry = {
       time: curTime,
