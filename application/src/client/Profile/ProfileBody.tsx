@@ -81,7 +81,7 @@ function ProfileBody() {
       <div className="profile-image-container">
         <img
           className="profile-image"
-          src={"/profile-image.png"}
+          src={"./profile-image.png"}
           alt="Profile Image"
         />
       </div>

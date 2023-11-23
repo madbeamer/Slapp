@@ -5,19 +5,19 @@
   max-height: calc(100vh - 114.5px);
   overflow-y: auto;
 
-  .profile-image {
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    background-color: #222222;
-  }
-
   .profile-image-container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: var(--space);
     /* overflow: hidden; */
+
+    .profile-image {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      background-color: #222222;
+    }
   }
 
   .profile-name {
