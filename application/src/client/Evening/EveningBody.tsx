@@ -105,6 +105,8 @@ function EveningBody({ switchValue }: { switchValue: string }) {
   const [csvData, setCsvData] = useState([
     { time: "0", errorNum: "0", errorRate: "0.0" },
   ]);
+  const [timeLastClicked, setTimeLastClicked] = useState(0);
+
   const [habits, setHabits] = useState(
     JSON.parse(sessionStorage.getItem("habits")!, reviver) as Map<
       string,
@@ -242,24 +244,17 @@ function EveningBody({ switchValue }: { switchValue: string }) {
       setDisplayCSV(true);
     } else {
       setDisplayCSV(false);
-      setCsvData([
-        {
-          time: (Date.now() / 1000).toString(),
-          errorNum: "0",
-          errorRate: "0.0",
-        },
-      ]);
+      setTimeLastClicked(Date.now());
+      setCsvData([]); // clear dummy entry
       setTesting(true);
     }
   }
 
   function handleSubmitButton() {
-    const curTime = (
-      Date.now() / 1000 -
-      Number(csvData[csvData.length - 1].time)
-    )
+    const curTime = ((Date.now() - timeLastClicked) / 1000)
       .toFixed(2)
       .toString();
+    setTimeLastClicked(Date.now());
     let errorNum = 0;
 
     const curHabits = new Array();
