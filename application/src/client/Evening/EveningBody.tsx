@@ -23,10 +23,70 @@ function EveningBody({ switchValue }: { switchValue: string }) {
     ["Meditation", { active: true, selected: false }],
   ]);
 
-  const defaultHabitList = new Array(someHabits.keys());
-  const additionalHabitList = [
-    ["Nap", "Open window", "Shopping", "Party", "Singing", "Noisy"],
-    ["Nap", "Open window", "Shopping", "Party", "Singing", "Noisy"],
+  const totalHabitList = [
+    "smoking",
+    "stress",
+    "latedinner",
+    "hungry",
+    "thirsty",
+    "alcohol",
+    "coffee",
+    "screentime",
+    "exercise",
+    "shower",
+    "medication",
+    "meditation",
+    "nap",
+    "openwindow",
+    "shopping",
+    "party",
+    "singing",
+    "noisy",
+  ];
+
+  const testHabitList = [
+    ["smoking", "latedinner", "hungry", "screentime", "shower", "medication"],
+    [
+      "smoking",
+      "stress",
+      "lateDinner",
+      "hungry",
+      "coffee",
+      "shower",
+      "medication",
+      "meditation",
+    ],
+    ["smoking", "thrsty", "coffee", "shower"],
+    ["smoking", "stress", "hungry", "alcohol", "screentime", "exercise"],
+    ["smoking", "stress", "hungry", "alcohol", "exercise"],
+    ["stress", "hungry", "alcohol", "exercise", "nap"],
+    [
+      "smoking",
+      "stress",
+      "hungry",
+      "exercise",
+      "nap",
+      "openwindow",
+      "shopping",
+      "party",
+    ],
+    [
+      "stress",
+      "hungry",
+      "alcohol",
+      "coffee",
+      "screentime",
+      "map",
+      "shopping",
+      "singing",
+      "noisy",
+    ],
+  ];
+
+  const csvHeader = [
+    { label: "Time in sec", key: "time" },
+    { label: "Number of wrong habits", key: "errorNum" },
+    { label: "Error Rate in %", key: "errorRate" },
   ];
 
   // init Sessionstorage:
@@ -36,17 +96,22 @@ function EveningBody({ switchValue }: { switchValue: string }) {
 
   // useStates & useEffect:
   useEffect(() => {}, [switchValue]);
+
+  const [isAddingHabit, setIsAddingHabit] = useState(false);
+  const [newButtonLabel, setNewButtonLabel] = useState("");
+  const [isDeletingHabit, setDeletingHabit] = useState(false);
+  const [isTesting, setTesting] = useState(false);
+  const [displayCSV, setDisplayCSV] = useState(false);
+  const [csvData, setCSVData] = useState([
+    { time: "0", errorNum: "0", errorRate: "0.0" },
+  ]);
   const [habits, setHabits] = useState(
     JSON.parse(sessionStorage.getItem("habits")!, reviver) as Map<
       string,
       { active: boolean; selected: boolean }
     >
   );
-  const [isAddingHabit, setIsAddingHabit] = useState(false);
-  const [newButtonLabel, setNewButtonLabel] = useState("");
-  const [isDeletingHabit, setDeletingHabit] = useState(false);
 
-  // return...
   return (
     <main className="evening-body-container">
       <div className="top-buttons">
@@ -56,7 +121,37 @@ function EveningBody({ switchValue }: { switchValue: string }) {
         >
           MODE: Night
         </button>
-        <button className="submit-button">Submit</button>
+        <button className="submit-button" onClick={handleSubmitButton}>
+          Submit
+        </button>
+      </div>
+
+      <div className="test-button-container">
+        {!isTesting ? (
+          <button className="timer-button" onClick={handleTestButton}>
+            Start Test
+          </button>
+        ) : (
+          <button className="timer-button started" onClick={handleTestButton}>
+            End Test
+          </button>
+        )}
+        <div>
+          {" "}
+          Day: <span>{csvData.length}</span>
+        </div>
+        {displayCSV ? (
+          <CSVLink
+            data={csvData}
+            headers={csvHeader}
+            filename="tester_testee_date_Test Result"
+            className="downloadCSV-link"
+          >
+            Download Test Result
+          </CSVLink>
+        ) : (
+          <></>
+        )}
       </div>
 
       <div className="habit-container">
@@ -139,6 +234,55 @@ function EveningBody({ switchValue }: { switchValue: string }) {
 
   function handleNavigationClick(path: string) {
     navigate(path);
+  }
+
+  function handleTestButton() {
+    if (isTesting) {
+      setTesting(false);
+      setDisplayCSV(true);
+    } else {
+      setDisplayCSV(false);
+      setCSVData([
+        {
+          time: (Date.now() / 1000).toString(),
+          errorNum: "0",
+          errorRate: "0.0",
+        },
+      ]);
+      setTesting(true);
+    }
+  }
+
+  function handleSubmitButton() {
+    const curTime = (
+      Date.now() / 1000 -
+      Number(csvData[csvData.length - 1].time)
+    )
+      .toFixed(2)
+      .toString();
+    let errorNum = 0;
+
+    const curHabits = new Array();
+    habits.forEach((value, key) => {
+      if (value.active && value.selected)
+        curHabits.push(key.toLowerCase().replace(/\s+/g, ""));
+    });
+
+    for (let i in totalHabitList) {
+      if (
+        testHabitList[csvData.length - 1].includes(totalHabitList[i]) !=
+        curHabits.includes(totalHabitList[i])
+      ) {
+        errorNum += 1;
+      }
+    }
+
+    let newEntry = {
+      time: curTime,
+      errorNum: errorNum.toString(),
+      errorRate: ((errorNum * 100) / 18.0).toFixed(2).toString(),
+    };
+    setCSVData([...csvData, newEntry]);
   }
 
   // when clicked on save habit.
