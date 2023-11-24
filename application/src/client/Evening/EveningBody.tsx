@@ -143,7 +143,7 @@ function EveningBody({
           </button>
         ) : (
           <button className="timer-button started" onClick={handleTestButton}>
-            End Test
+            Cancel Test
           </button>
         )}
         {isTesting && (
@@ -152,7 +152,7 @@ function EveningBody({
             Day: <span>{csvData.length} / 8</span>
           </div>
         )}
-        {displayCSV ? (
+        {displayCSV && csvData.length >= 9 ? (
           <CSVLink
             data={csvData.slice(1)}
             headers={csvHeader}
