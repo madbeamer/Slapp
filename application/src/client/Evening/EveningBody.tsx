@@ -152,7 +152,7 @@ function EveningBody({
         </div>
         {displayCSV ? (
           <CSVLink
-            data={csvData}
+            data={csvData.slice(1)}
             headers={csvHeader}
             filename={`${testerID}-${testeeID}.csv`}
             className="downloadCSV-link"
@@ -253,7 +253,6 @@ function EveningBody({
     } else {
       setDisplayCSV(false);
       setTimeLastClicked(Date.now());
-      setCsvData([]); // clear dummy entry
       setTesting(true);
     }
   }
