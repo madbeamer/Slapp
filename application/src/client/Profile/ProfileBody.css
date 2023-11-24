@@ -50,8 +50,10 @@
     cursor: pointer;
   }
 
-  .profile-button:hover {
-    background-color: var(--selected-color);
+  @media (hover: hover) {
+    .profile-button:hover {
+      background-color: var(--selected-color);
+    }
   }
 
   .profile-line-container {
@@ -62,8 +64,10 @@
     cursor: pointer;
   }
 
-  .profile-line-container:hover {
-    background-color: var(--selected-color);
+  @media (hover: hover) {
+    .profile-line-container:hover {
+      background-color: var(--selected-color);
+    }
   }
 
   .spacer {
@@ -106,12 +110,14 @@
     color: var(--text-color);
     font-size: 1.2rem;
 
-    &:hover {
-      background-color: red;
-    }
-
     .logout-icon {
       padding-left: var(--space);
+    }
+  }
+
+  @media (hover: hover) {
+    .logout-button:hover {
+      background-color: red;
     }
   }
 }

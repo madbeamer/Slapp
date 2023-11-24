@@ -26,9 +26,11 @@
       border-radius: var(--border-radius);
     }
 
-    .mode-button:hover,
-    .submit-button:hover {
-      background-color: var(--selected-color);
+    @media (hover: hover) {
+      .mode-button:hover,
+      .submit-button:hover {
+        background-color: var(--selected-color);
+      }
     }
   }
 
@@ -143,10 +145,6 @@
     .habit-button.deleting {
       background-color: rgba(255, 0, 0, 0.1);
     }
-
-    /* .habit-button:hover {
-      background-color: var(--selected-color);
-    } */
   }
 
   .save-button {
@@ -159,8 +157,10 @@
     cursor: pointer;
   }
 
-  .save-button:hover {
-    background-color: var(--selected-color);
+  @media (hover: hover) {
+    .save-button:hover {
+      background-color: var(--selected-color);
+    }
   }
 
   .buttonContainer {

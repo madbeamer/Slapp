@@ -31,7 +31,9 @@
     text-decoration: none;
   }
 
-  .article-link:hover {
-    text-decoration: underline;
+  @media (hover: hover) {
+    .article-link:hover {
+      text-decoration: underline;
+    }
   }
 }
