@@ -37,7 +37,7 @@ function LoginForm({
     <form className="login-form" onSubmit={handleSubmit}>
       {/* Input element with an onChange event handler */}
       <div>
-        <label htmlFor="tester">Tester:</label>
+        <label htmlFor="tester">Tester ID:</label>
       </div>
       <div>
         <input
@@ -46,12 +46,12 @@ function LoginForm({
           type="text"
           value={testerID}
           onChange={handleTesterChange}
-          placeholder="Type something..."
+          placeholder="e.g. 06"
           required
         ></input>
       </div>
       <div>
-        <label htmlFor="testee:">Testee:</label>
+        <label htmlFor="testee:">Testee ID:</label>
       </div>
       <div>
         <input
@@ -60,7 +60,7 @@ function LoginForm({
           type="text"
           value={testeeID}
           onChange={handleTesteeChange}
-          placeholder="Type something..."
+          placeholder="e.g. 02"
           required
         ></input>
       </div>
