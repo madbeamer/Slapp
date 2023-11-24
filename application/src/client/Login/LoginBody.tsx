@@ -34,7 +34,7 @@ function LoginForm({
   };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit} id="form1">
       {/* Input element with an onChange event handler */}
       <div>
         <label htmlFor="tester">Tester ID:</label>
@@ -51,7 +51,7 @@ function LoginForm({
         ></input>
       </div>
       <div>
-        <label htmlFor="testee:">Testee ID:</label>
+        <label htmlFor="testee">Testee ID:</label>
       </div>
       <div>
         <input
@@ -135,6 +135,7 @@ function LoginBody({
         uncheckedIcon={false}
         onColor="#f2ac3c"
         offColor="#1f2f42"
+        id="switch1"
       />
       <div>Prototype {switchValue} is selected.</div>
     </main>
