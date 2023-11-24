@@ -144,7 +144,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
           <CSVLink
             data={csvData}
             headers={csvHeader}
-            filename="tester_testee_date_Test Result"
+            filename="tester-testee-date.csv"
             className="downloadCSV-link"
           >
             Download Test Result
