@@ -149,7 +149,7 @@ function EveningBody({
         {isTesting && (
           <div>
             {" "}
-            Day: <span>{csvData.length}</span>
+            Day: <span>{csvData.length} / 8</span>
           </div>
         )}
         {displayCSV ? (
@@ -255,6 +255,7 @@ function EveningBody({
     } else {
       setDisplayCSV(false);
       setTimeLastClicked(Date.now());
+      setCsvData([{ time: "0", errorNum: "0", errorRate: "0.0" }]);
       setTesting(true);
     }
   }
