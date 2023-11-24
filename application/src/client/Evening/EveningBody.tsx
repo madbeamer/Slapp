@@ -102,7 +102,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
   const [isDeletingHabit, setDeletingHabit] = useState(false);
   const [isTesting, setTesting] = useState(false);
   const [displayCSV, setDisplayCSV] = useState(false);
-  const [csvData, setCSVData] = useState([
+  const [csvData, setCsvData] = useState([
     { time: "0", errorNum: "0", errorRate: "0.0" },
   ]);
   const [habits, setHabits] = useState(
@@ -242,7 +242,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
       setDisplayCSV(true);
     } else {
       setDisplayCSV(false);
-      setCSVData([
+      setCsvData([
         {
           time: (Date.now() / 1000).toString(),
           errorNum: "0",
@@ -282,7 +282,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
       errorNum: errorNum.toString(),
       errorRate: ((errorNum * 100) / 18.0).toFixed(2).toString(),
     };
-    setCSVData([...csvData, newEntry]);
+    setCsvData([...csvData, newEntry]);
   }
 
   // when clicked on save habit.
