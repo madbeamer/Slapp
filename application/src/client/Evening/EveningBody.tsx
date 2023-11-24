@@ -28,7 +28,7 @@ function EveningBody({
     ["Exercise", { active: true, selected: false }],
     ["Shower", { active: true, selected: false }],
     ["Medication", { active: true, selected: false }],
-    ["Meditation", { active: true, selected: false }],
+    ["Yoga", { active: true, selected: false }],
   ]);
 
   const totalHabitList = [
@@ -43,7 +43,7 @@ function EveningBody({
     "exercise",
     "shower",
     "medication",
-    "meditation",
+    "yoga",
     "nap",
     "openwindow",
     "shopping",
@@ -57,14 +57,14 @@ function EveningBody({
     [
       "smoking",
       "stress",
-      "lateDinner",
+      "latedinner",
       "hungry",
       "coffee",
       "shower",
       "medication",
-      "meditation",
+      "yoga",
     ],
-    ["smoking", "thrsty", "coffee", "shower"],
+    ["smoking", "thirsty", "coffee", "shower"],
     ["smoking", "stress", "hungry", "alcohol", "screentime", "exercise"],
     ["smoking", "stress", "hungry", "alcohol", "exercise"],
     ["stress", "hungry", "alcohol", "exercise", "nap"],
@@ -84,7 +84,7 @@ function EveningBody({
       "alcohol",
       "coffee",
       "screentime",
-      "map",
+      "nap",
       "shopping",
       "singing",
       "noisy",
@@ -146,10 +146,12 @@ function EveningBody({
             End Test
           </button>
         )}
-        <div>
-          {" "}
-          Day: <span>{csvData.length}</span>
-        </div>
+        {isTesting && (
+          <div>
+            {" "}
+            Day: <span>{csvData.length}</span>
+          </div>
+        )}
         {displayCSV ? (
           <CSVLink
             data={csvData.slice(1)}
@@ -287,6 +289,7 @@ function EveningBody({
     setCsvData([...csvData, newEntry]);
     if (csvData.length >= 8) {
       handleTestButton();
+      alert("Test successfully completed! Please download the result.");
     }
   }
 
