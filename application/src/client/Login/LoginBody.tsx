@@ -28,8 +28,8 @@ function LoginForm({
     // Prevent the default form submission behavior
     event.preventDefault();
 
-    sessionStorage.setItem("tester", testerID);
-    sessionStorage.setItem("testee", testeeID);
+    sessionStorage.setItem("testerID", testerID);
+    sessionStorage.setItem("testeeID", testeeID);
     navigate("/statistics");
   };
 
