@@ -52,7 +52,13 @@
     }
 
     .timer-button.started {
-      background-color: var(--selected-color);
+      background-color: rgb(99, 0, 0);
+    }
+
+    @media (hover: hover) {
+      .timer-button:hover {
+        background-color: var(--selected-color);
+      }
     }
 
     & div {
