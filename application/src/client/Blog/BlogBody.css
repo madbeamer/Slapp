@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   flex: 1;
   justify-content: space-around;
-  max-height: calc(100vh - 114.5px);
+  max-height: calc(100vh - 114px);
   overflow-y: auto;
 
   .article-card {

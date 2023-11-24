@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-  max-height: calc(100vh - 114.5px);
+  max-height: calc(100vh - 114px);
   overflow-y: auto;
   font-family: Arial, sans-serif;
   padding: 0 var(--space);
