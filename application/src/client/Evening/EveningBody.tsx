@@ -285,7 +285,7 @@ function EveningBody({
       errorRate: ((errorNum * 100) / 18.0).toFixed(2).toString(),
     };
     setCsvData([...csvData, newEntry]);
-    if (csvData.length >= 7) {
+    if (csvData.length >= 8) {
       handleTestButton();
     }
   }
