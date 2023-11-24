@@ -11,23 +11,23 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [switchValue, setSwitchValue] = useState("A");
-  const [testerID, setTesterID] = useState("");
-  const [testeeID, setTesteeID] = useState("");
+  const [testerID, setTesterID] = useState(
+    sessionStorage.getItem("testerID") === null
+      ? ""
+      : (sessionStorage.getItem("testerID") as string)
+  );
+  const [testeeID, setTesteeID] = useState(
+    sessionStorage.getItem("testeeID") === null
+      ? ""
+      : (sessionStorage.getItem("testeeID") as string)
+  );
 
   useEffect(() => {
     const switchValueStorage = sessionStorage.getItem("switchValue");
     if (switchValueStorage) {
       setSwitchValue(switchValueStorage);
     }
-    const testerIDStorage = sessionStorage.getItem("testerID");
-    if (testerIDStorage) {
-      setTesterID(testerIDStorage);
-    }
-    const testeeIDStorage = sessionStorage.getItem("testeeID");
-    if (testeeIDStorage) {
-      setTesteeID(testeeIDStorage);
-    }
-  }, [setSwitchValue, setTesterID, setTesteeID]);
+  }, [setSwitchValue]);
 
   return (
     <>
