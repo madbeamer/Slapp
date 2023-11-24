@@ -1,21 +1,26 @@
 import "./LoginBody.css";
 import ReactSwitch from "react-switch";
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
 
-function LoginForm() {
+function LoginForm({
+  testerID,
+  setTesterID,
+  testeeID,
+  setTesteeID,
+}: {
+  testerID: string;
+  setTesterID: React.Dispatch<React.SetStateAction<string>>;
+  testeeID: string;
+  setTesteeID: React.Dispatch<React.SetStateAction<string>>;
+}) {
   const navigate = useNavigate();
-  // Define state variables to store input values
-  const [testerValue, setTesterValue] = useState<string>("");
-  const [testeeValue, setTesteeValue] = useState<string>("");
-
   // Event handler to update the state when the input value changes
   const handleTesterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTesterValue(event.target.value);
+    setTesterID(event.target.value);
   };
 
   const handleTesteeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTesteeValue(event.target.value);
+    setTesteeID(event.target.value);
   };
 
   // Event handler for form submission
@@ -23,8 +28,8 @@ function LoginForm() {
     // Prevent the default form submission behavior
     event.preventDefault();
 
-    sessionStorage.setItem("tester", testerValue);
-    sessionStorage.setItem("testee", testeeValue);
+    sessionStorage.setItem("tester", testerID);
+    sessionStorage.setItem("testee", testeeID);
     navigate("/statistics");
   };
 
@@ -39,7 +44,7 @@ function LoginForm() {
           className="input-field"
           id="tester"
           type="text"
-          value={testerValue}
+          value={testerID}
           onChange={handleTesterChange}
           placeholder="Type something..."
           required
@@ -53,7 +58,7 @@ function LoginForm() {
           className="input-field"
           id="testee"
           type="text"
-          value={testeeValue}
+          value={testeeID}
           onChange={handleTesteeChange}
           placeholder="Type something..."
           required
@@ -95,9 +100,17 @@ function LoginForm() {
 function LoginBody({
   switchValue,
   setSwitchValue,
+  testerID,
+  setTesterID,
+  testeeID,
+  setTesteeID,
 }: {
   switchValue: string;
   setSwitchValue: React.Dispatch<React.SetStateAction<string>>;
+  testerID: string;
+  setTesterID: React.Dispatch<React.SetStateAction<string>>;
+  testeeID: string;
+  setTesteeID: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const handleSwitchChange = (checked: boolean) => {
     const value = checked ? "B" : "A";
@@ -108,7 +121,12 @@ function LoginBody({
   return (
     <main className="login-body-container">
       <img className="logo" src="/slapp-logo-ramon.png"></img>
-      <LoginForm />
+      <LoginForm
+        testerID={testerID}
+        setTesterID={setTesterID}
+        testeeID={testeeID}
+        setTesteeID={setTesteeID}
+      />
       <ReactSwitch
         className="mode-switch"
         onChange={handleSwitchChange}

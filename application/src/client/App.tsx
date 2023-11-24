@@ -18,6 +18,9 @@ function App() {
     }
   }, [setSwitchValue]);
 
+  const [testerID, setTesterID] = useState("");
+  const [testeeID, setTesteeID] = useState("");
+
   return (
     <>
       <Routes>
@@ -25,13 +28,26 @@ function App() {
         <Route
           path="/login"
           element={
-            <Login switchValue={switchValue} setSwitchValue={setSwitchValue} />
+            <Login
+              switchValue={switchValue}
+              setSwitchValue={setSwitchValue}
+              testerID={testerID}
+              setTesterID={setTesterID}
+              testeeID={testeeID}
+              setTesteeID={setTesteeID}
+            />
           }
         />
         <Route path="/statistics" element={<Statistics />} />
         <Route
           path="/evening"
-          element={<Evening switchValue={switchValue} />}
+          element={
+            <Evening
+              switchValue={switchValue}
+              testerID={testerID}
+              testeeID={testeeID}
+            />
+          }
         />
         <Route path="/morning" element={<Morning />} />
         <Route path="/blog" element={<Blog />} />

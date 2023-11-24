@@ -4,7 +4,15 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { CSVLink } from "react-csv";
 
-function EveningBody({ switchValue }: { switchValue: string }) {
+function EveningBody({
+  switchValue,
+  testerID,
+  testeeID,
+}: {
+  switchValue: string;
+  testerID: string;
+  testeeID: string;
+}) {
   // useful const's:
   const navigate = useNavigate();
 
@@ -146,7 +154,7 @@ function EveningBody({ switchValue }: { switchValue: string }) {
           <CSVLink
             data={csvData}
             headers={csvHeader}
-            filename="tester-testee-date.csv"
+            filename={`${testerID}-${testeeID}.csv`}
             className="downloadCSV-link"
           >
             Download Test Result
