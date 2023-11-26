@@ -137,7 +137,7 @@ function LoginBody({
         offColor="#1f2f42"
         id="switch1"
       />
-      <div>Prototype {switchValue} is selected.</div>
+      <div>Version {switchValue} is selected.</div>
     </main>
   );
 }
