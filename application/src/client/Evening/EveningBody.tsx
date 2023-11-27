@@ -156,7 +156,7 @@ function EveningBody({
           <CSVLink
             data={csvData.slice(1)}
             headers={csvHeader}
-            filename={`${testerID}-${testeeID}.csv`}
+            filename={`${testerID}-${testeeID}-${switchValue.toLowerCase()}.csv`}
             className="downloadCSV-link"
           >
             Download Test Result
