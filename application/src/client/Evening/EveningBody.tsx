@@ -2,12 +2,9 @@ import "./EveningBody.css";
 import { useState, useEffect } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { CSVLink } from "react-csv";
 
 function EveningBody({
   switchValue,
-  testerID,
-  testeeID,
 }: {
   switchValue: string;
   testerID: string;
@@ -91,12 +88,6 @@ function EveningBody({
     ],
   ];
 
-  const csvHeader = [
-    { label: "Time in sec", key: "time" },
-    { label: "Number of wrong habits", key: "errorNum" },
-    { label: "Error Rate in %", key: "errorRate" },
-  ];
-
   // init Sessionstorage:
   if (JSON.parse(sessionStorage.getItem("habits")!, reviver) == null) {
     sessionStorage.setItem("habits", JSON.stringify(someHabits, replacer));
@@ -109,7 +100,6 @@ function EveningBody({
   const [newButtonLabel, setNewButtonLabel] = useState("");
   const [isDeletingHabit, setDeletingHabit] = useState(false);
   const [isTesting, setTesting] = useState(false);
-  const [displayCSV, setDisplayCSV] = useState(false);
   const [csvData, setCsvData] = useState([
     { time: "0", errorNum: "0", errorRate: "0.0" },
   ]);
@@ -134,36 +124,6 @@ function EveningBody({
         <button className="submit-button" onClick={handleSubmitButton}>
           Submit
         </button>
-      </div>
-
-      <div className="test-button-container">
-        {!isTesting ? (
-          <button className="timer-button" onClick={handleTestButton}>
-            Start Test
-          </button>
-        ) : (
-          <button className="timer-button started" onClick={handleTestButton}>
-            Cancel Test
-          </button>
-        )}
-        {isTesting && (
-          <div>
-            {" "}
-            Day: <span>{csvData.length} / 8</span>
-          </div>
-        )}
-        {displayCSV && csvData.length >= 9 ? (
-          <CSVLink
-            data={csvData.slice(1)}
-            headers={csvHeader}
-            filename={`${testerID}-${testeeID}-${switchValue.toLowerCase()}.csv`}
-            className="downloadCSV-link"
-          >
-            Download Test Result
-          </CSVLink>
-        ) : (
-          <></>
-        )}
       </div>
 
       <div className="habit-container">
@@ -251,9 +211,7 @@ function EveningBody({
   function handleTestButton() {
     if (isTesting) {
       setTesting(false);
-      setDisplayCSV(true);
     } else {
-      setDisplayCSV(false);
       setTimeLastClicked(Date.now());
       setCsvData([{ time: "0", errorNum: "0", errorRate: "0.0" }]);
       setTesting(true);
