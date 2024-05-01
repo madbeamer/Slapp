@@ -2,7 +2,7 @@
 
 ## Project description
 
-This is the final project for the HCI course at ETH Zurich. We used Vite + React + Typescript to implement the webapp.
+Slapp is a habit tracking app designed to improve your sleep quality by helping you establish and maintain healthy sleep habits. We used Vite + React + Typescript to implement the webapp.
 
 ## Website
 
