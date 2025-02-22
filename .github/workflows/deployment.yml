@@ -30,24 +30,30 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Set up Node
+
+            - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
                   node-version: 18
                   cache: "npm"
                   cache-dependency-path: "./application/package-lock.json"
+
             - name: Install dependencies
               run: npm install
               working-directory: ./application
+
             - name: Build
               run: npm run build
               working-directory: ./application
+
             - name: Setup Pages
               uses: actions/configure-pages@v3
+
             - name: Upload artifact
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-pages-artifact@v2
               with:
                   path: "./application/dist"
+
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v2
